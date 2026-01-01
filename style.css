@@ -1,4 +1,4 @@
-/* Reset Dasar: Menghapus jarak bawaan browser */
+/* RESET & GLOBAL STYLES */
 * {
     margin: 0;
     padding: 0;
@@ -6,76 +6,187 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif; /* Font modern */
+    color: #333;
     line-height: 1.6;
-}
-
-/* Styling Header/Navbar */
-header {
-    background-color: #004aad; /* Warna Biru Khas IT */
-    color: white;
-    padding: 1rem 0;
+    background-color: #f9fbfd;
 }
 
 .container {
     width: 90%;
+    max-width: 1100px;
     margin: auto;
-    display: flex; /* Membuat logo dan menu sejajar (kiri-kanan) */
+}
+
+/* NAVBAR */
+.navbar {
+    background: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
+.logo {
+    font-size: 1.5rem;
+    color: #004aad; /* Biru Utama */
+    font-weight: 700;
 }
 
-nav ul li {
+.logo span {
+    color: #00d2ff; /* Biru Muda */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li {
     margin-left: 20px;
 }
 
-nav a {
-    color: white;
-    text-decoration: none; /* Menghilangkan garis bawah link */
-    font-weight: bold;
+.nav-links a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: 0.3s;
 }
 
-/* Styling Hero Section */
+.nav-links a:hover {
+    color: #004aad;
+}
+
+/* Tombol Khusus di Menu */
+.btn-daftar {
+    background: #004aad;
+    color: #fff !important;
+    padding: 8px 20px;
+    border-radius: 20px;
+}
+
+.btn-daftar:hover {
+    background: #003380;
+    transform: scale(1.05); /* Efek membesar sedikit */
+}
+
+/* HERO SECTION (Banner Utama) */
 .hero {
-    background-color: #f4f4f4;
-    height: 80vh; /* Tinggi 80% dari layar */
+    height: 90vh; /* Hampir layar penuh */
+    background: linear-gradient(135deg, #004aad 0%, #0078ff 100%); /* GRADASI BIRU KEREN */
+    color: white;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 20px;
+    padding: 0 20px;
+    /* Opsional: Tambahkan URL gambar background di sini jika ada */
 }
 
 .hero h2 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
 }
 
-/* Styling Tombol */
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+}
+
+/* BUTTONS */
 .btn {
     display: inline-block;
-    background: #004aad;
-    color: white;
-    padding: 10px 20px;
-    margin-top: 20px;
+    padding: 12px 30px;
+    border-radius: 30px;
     text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s;
+    font-weight: 600;
+    margin: 5px;
+    transition: 0.3s;
 }
 
-.btn:hover {
-    background: #003380; /* Warna berubah saat mouse diatasnya */
+.btn-primary {
+    background: #fff;
+    color: #004aad;
 }
 
+.btn-primary:hover {
+    background: #e6e6e6;
+}
+
+.btn-outline {
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+.btn-outline:hover {
+    background: #fff;
+    color: #004aad;
+}
+
+/* FEATURES SECTION */
+.features {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 50px;
+    color: #004aad;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsif otomatis */
+    gap: 30px;
+}
+
+.card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05); /* Bayangan halus */
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Efek naik saat ditunjuk mouse */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.card i {
+    font-size: 3rem;
+    color: #00d2ff;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* FOOTER */
 footer {
+    background: #002a61;
+    color: white;
     text-align: center;
     padding: 20px;
-    background: #333;
-    color: white;
+    margin-top: auto;
+}
+
+footer i {
+    color: #ff4d4d;
 }
