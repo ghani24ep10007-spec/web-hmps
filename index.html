@@ -3,32 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HMPS Sistem Informasi</title>
+    <title>HMPS Sistem Informasi UNUGHA</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <h1>HMPS SI</h1>
-            <nav>
-                <ul>
-                    <li><a href="#home">Beranda</a></li>
-                    <li><a href="#visi">Visi Misi</a></li>
-                    <li><a href="#kontak">Kontak</a></li>
-                </ul>
-            </nav>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <h1 class="logo">HMPS <span>SI</span></h1>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang Kami</a></li>
+                <li><a href="#why">Kenapa SI?</a></li>
+                <li><a href="#contact" class="btn-daftar">Daftar Sekarang</a></li>
+            </ul>
         </div>
-    </header>
+    </nav>
 
     <section id="home" class="hero">
-        <h2>Selamat Datang di Himpunan Mahasiswa Sistem Informasi</h2>
-        <p>Mewujudkan Mahasiswa SI yang Kreatif, Inovatif, dan Berkarakter.</p>
-        <a href="#kontak" class="btn">Gabung Bersama Kami</a>
+        <div class="hero-content">
+            <h2>Masa Depan Teknologi <br> Ada di Tanganmu</h2>
+            <p>Bergabunglah dengan Keluarga Besar Sistem Informasi UNUGHA. Kembangkan skill coding, analisis data, dan kepemimpinan.</p>
+            <div class="hero-buttons">
+                <a href="#about" class="btn btn-primary">Pelajari Lebih Lanjut</a>
+                <a href="#contact" class="btn btn-outline">Hubungi Kami</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="why" class="features">
+        <div class="container">
+            <h2 class="section-title">Kenapa Masuk Sistem Informasi?</h2>
+            <div class="features-grid">
+                <div class="card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Skill Coding</h3>
+                    <p>Belajar bahasa pemrograman modern seperti Python, Web, dan Mobile App dari nol.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Prospek Kerja Luas</h3>
+                    <p>Lulusan SI dibutuhkan di semua sektor industri sebagai IT Analyst, Developer, hingga Manajer.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-users"></i>
+                    <h3>Organisasi Solid</h3>
+                    <p>HMPS SI adalah wadah kekeluargaan untuk belajar berorganisasi dan networking.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 HMPS Sistem Informasi - UNUGHA</p>
+        <div class="container">
+            <p>Dibuat dengan <i class="fas fa-heart"></i> oleh Rizqi Ghani Adinata | HMPS SI UNUGHA</p>
+        </div>
     </footer>
 
 </body>
