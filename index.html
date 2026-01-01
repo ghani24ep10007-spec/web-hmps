@@ -7,50 +7,89 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
     <nav class="navbar">
         <div class="container nav-container">
             <h1 class="logo">HMPS <span>SI</span></h1>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
             <ul class="nav-links">
                 <li><a href="#home">Beranda</a></li>
-                <li><a href="#about">Tentang Kami</a></li>
-                <li><a href="#why">Kenapa SI?</a></li>
-                <li><a href="#contact" class="btn-daftar">Daftar Sekarang</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#team">Pengurus</a></li>
+                <li><a href="#contact" class="btn-daftar">Daftar</a></li>
             </ul>
         </div>
     </nav>
 
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h2>Masa Depan Teknologi <br> Ada di Tanganmu</h2>
-            <p>Bergabunglah dengan Keluarga Besar Sistem Informasi UNUGHA. Kembangkan skill coding, analisis data, dan kepemimpinan.</p>
+        <div class="overlay"></div> <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+            <h2>Transformasi Digital <br> Dimulai Dari Sini</h2>
+            <p>HMPS Sistem Informasi UNUGHA: Wadah kolaborasi mahasiswa untuk mencetak talenta IT masa depan.</p>
             <div class="hero-buttons">
-                <a href="#about" class="btn btn-primary">Pelajari Lebih Lanjut</a>
-                <a href="#contact" class="btn btn-outline">Hubungi Kami</a>
+                <a href="#about" class="btn btn-primary">Lihat Program</a>
+                <a href="#contact" class="btn btn-outline">Join Discord/WA</a>
             </div>
         </div>
     </section>
 
-    <section id="why" class="features">
+    <section id="about" class="features">
         <div class="container">
-            <h2 class="section-title">Kenapa Masuk Sistem Informasi?</h2>
+            <h2 class="section-title" data-aos="fade-right">Kenapa SI UNUGHA?</h2>
             <div class="features-grid">
-                <div class="card">
-                    <i class="fas fa-laptop-code"></i>
-                    <h3>Skill Coding</h3>
-                    <p>Belajar bahasa pemrograman modern seperti Python, Web, dan Mobile App dari nol.</p>
+                <div class="card" data-aos="flip-left" data-aos-delay="100">
+                    <i class="fas fa-code"></i>
+                    <h3>Web Development</h3>
+                    <p>Fokus belajar Fullstack Web (Python, PHP, React) sesuai kebutuhan industri.</p>
                 </div>
-                <div class="card">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Prospek Kerja Luas</h3>
-                    <p>Lulusan SI dibutuhkan di semua sektor industri sebagai IT Analyst, Developer, hingga Manajer.</p>
+                <div class="card" data-aos="flip-left" data-aos-delay="200">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Networking</h3>
+                    <p>Praktik jaringan komputer, Mikrotik, dan keamanan siber dasar.</p>
                 </div>
-                <div class="card">
-                    <i class="fas fa-users"></i>
-                    <h3>Organisasi Solid</h3>
-                    <p>HMPS SI adalah wadah kekeluargaan untuk belajar berorganisasi dan networking.</p>
+                <div class="card" data-aos="flip-left" data-aos-delay="300">
+                    <i class="fas fa-brain"></i>
+                    <h3>Data Analyst</h3>
+                    <p>Belajar mengolah data menjadi informasi berharga untuk bisnis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="team">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Pengurus Inti</h2>
+            <p class="subtitle" data-aos="fade-up">Orang-orang dibalik layar HMPS SI</p>
+            
+            <div class="team-grid">
+                <div class="team-member" data-aos="zoom-in">
+                    <div class="member-img">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Ketua">
+                    </div>
+                    <h3>Nama Ketua</h3>
+                    <p>Ketua Himpunan</p>
+                </div>
+
+                <div class="team-member" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="member-img">
+                        <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Wakil">
+                    </div>
+                    <h3>Nama Wakil</h3>
+                    <p>Wakil Ketua</p>
+                </div>
+
+                <div class="team-member" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="member-img">
+                        <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Sekretaris">
+                    </div>
+                    <h3>Rizqi Ghani</h3>
+                    <p>Divisi Media & Info</p>
                 </div>
             </div>
         </div>
@@ -58,9 +97,18 @@
 
     <footer>
         <div class="container">
-            <p>Dibuat dengan <i class="fas fa-heart"></i> oleh Rizqi Ghani Adinata | HMPS SI UNUGHA</p>
+            <p>&copy; 2025 HMPS Sistem Informasi UNUGHA</p>
+            <div class="socials">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
         </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init(); // Menjalankan animasi
+    </script>
 </body>
 </html>
