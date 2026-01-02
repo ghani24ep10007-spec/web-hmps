@@ -28,7 +28,7 @@
 
         /* --- 2. LAYOUT UTILITIES --- */
         #main-website { display: block; }
-        #admin-dashboard { display: none; } /* Hidden by default */
+        #admin-dashboard { display: none; }
         
         #canvas-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at center, #1e1b4b 0%, #020617 100%); }
 
@@ -48,6 +48,7 @@
             background: linear-gradient(135deg, var(--secondary), var(--primary)); padding: 8px 20px;
             border-radius: 50px; color: white; text-decoration: none; font-size: 0.85rem; font-weight: 600;
             display: flex; align-items: center; gap: 8px; box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+            cursor: pointer; /* Tambahan cursor pointer */
         }
         .btn-owner:hover { box-shadow: 0 0 25px rgba(14, 165, 233, 0.6); transform: translateY(-2px); }
 
@@ -61,7 +62,7 @@
         .hero-title { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
         .hero-title span { color: var(--primary); }
         
-        /* CARDS (STRUCTURE) */
+        /* CARDS */
         .grid-leader { display: flex; justify-content: center; margin-bottom: 30px; }
         .grid-bph, .grid-divisi { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; margin-bottom: 40px; }
         
@@ -87,7 +88,7 @@
         .card.owner-card { border-color: var(--accent); } 
         .card.owner-card .profile-img { color: var(--accent); }
 
-        /* DOWNLOAD AREA (NEW) */
+        /* DOWNLOAD AREA */
         .download-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
         .dl-card {
             background: var(--bg-panel); padding: 20px; border-radius: 15px; display: flex; align-items: center; gap: 15px;
@@ -99,7 +100,7 @@
         .dl-info p { font-size: 0.8rem; color: var(--text-muted); }
         .btn-dl { margin-left: auto; padding: 8px 15px; background: var(--glass-border); border-radius: 50px; color: var(--primary); text-decoration: none; font-size: 0.8rem; }
 
-        /* CONTACT FORM (WA INTEGRATION) */
+        /* CONTACT FORM */
         .contact-container { display: flex; flex-wrap: wrap; gap: 40px; }
         .contact-form { flex: 1; min-width: 300px; background: var(--glass); padding: 30px; border-radius: 20px; border: 1px solid var(--glass-border); }
         .form-group input, .form-group textarea { width: 100%; padding: 12px; margin-bottom: 15px; background: #0f172a; border: 1px solid var(--glass-border); color: white; border-radius: 8px; outline: none; }
@@ -130,10 +131,14 @@
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
-            .nav-menu { display: none; } /* Simplified for mobile */
-            .sidebar { display: none; } /* Hide sidebar on mobile for now */
-            .main-panel { padding: 10px; }
+            /* PERBAIKAN: Menu sekarang scrollable horizontal / wrap, tidak di-hide */
+            .navbar { flex-wrap: wrap; gap: 10px; justify-content: center; }
+            .nav-menu { display: flex; gap: 10px; font-size: 0.8rem; margin: 5px 0; } 
+            
+            .sidebar { display: none; } 
+            .main-panel { padding: 15px; }
             .hero-title { font-size: 2.5rem; }
+            .btn-owner { font-size: 0.75rem; padding: 6px 15px; }
         }
     </style>
 </head>
@@ -159,7 +164,7 @@
             <div style="color:var(--primary); letter-spacing:2px; margin-bottom:10px;">OFFICIAL PORTAL</div>
             <h1 class="hero-title">HMPSSI <span>UNUGHA</span></h1>
             <p style="color:var(--text-muted); margin-bottom:30px;">Himpunan Mahasiswa Program Studi Sistem Informasi<br>Periode 2026 - 2027</p>
-            <div style="display:flex; gap:15px;">
+            <div style="display:flex; gap:15px; flex-wrap: wrap; justify-content: center;">
                 <a href="#contact" class="btn-owner">Hubungi Kami</a>
                 <a href="#structure" class="btn-owner" style="background:transparent; border:1px solid var(--primary); color:var(--primary);">Lihat Struktur</a>
             </div>
@@ -293,22 +298,39 @@
     </div>
 
     <script>
-        // 1. WHATSAPP SENDER (User Interaction)
+        // 1. NAVIGATION & LAYOUT LOGIC (DIPERBAIKI)
+        // Fungsi ini sebelumnya hilang, sekarang sudah ditambahkan
+        function showSite() {
+            document.getElementById('main-website').style.display = 'block';
+            document.getElementById('admin-dashboard').style.display = 'none';
+            document.getElementById('btn-text').innerText = "Owner Login";
+            document.getElementById('loginModal').style.display = 'none';
+            window.scrollTo(0,0);
+        }
+
+        // 2. WHATSAPP SENDER
         function sendToWA(e) {
             e.preventDefault();
             let name = document.getElementById('waName').value;
             let cls = document.getElementById('waClass').value;
             let msg = document.getElementById('waMsg').value;
             
-            // Ganti nomor ini dengan nomor WA kamu (format: 628xxx)
-            let phone = "6281234567890"; 
+            // --- PERHATIAN: GANTI NOMOR INI DENGAN NOMOR WA ASLI ---
+            let phone = "6281234567890"; // Format: 628... (tanpa + atau 0 di depan)
             
             let url = `https://wa.me/${phone}?text=*Halo Admin HMPSSI*%0A%0A*Nama:* ${name}%0A*Kelas:* ${cls}%0A*Pesan:* ${msg}`;
             window.open(url, '_blank');
         }
 
-        // 2. ADMIN SYSTEM (Owner Interaction)
-        function openLogin() { document.getElementById('loginModal').style.display = 'flex'; }
+        // 3. ADMIN SYSTEM
+        function openLogin() { 
+            // Cek jika sedang di mode admin, tombol ini jadi tombol "Dashboard" bukan login lagi
+            if(document.getElementById('admin-dashboard').style.display === 'block') {
+                return; // Do nothing or scroll to top
+            }
+            document.getElementById('loginModal').style.display = 'flex'; 
+        }
+        
         function closeModal() { document.getElementById('loginModal').style.display = 'none'; }
 
         function handleLogin(e) {
@@ -331,17 +353,22 @@
 
         function logout() {
             if(confirm("Yakin ingin keluar?")) {
-                document.getElementById('main-website').style.display = 'block';
-                document.getElementById('admin-dashboard').style.display = 'none';
-                document.getElementById('btn-text').innerText = "Owner Login";
+                showSite(); // Menggunakan fungsi showSite untuk kembali ke tampilan awal
             }
         }
 
-        // 3. BACKGROUND ANIMATION
+        // 4. BACKGROUND ANIMATION (Tetap sama, sudah bagus)
         window.onload = function() {
             const canvas = document.getElementById('canvas-container');
             const ctx = canvas.getContext('2d');
             canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+            
+            // Resize listener agar canvas tidak stretch saat di-resize
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+
             let particles = [];
             for(let i=0; i<60; i++) {
                 particles.push({
