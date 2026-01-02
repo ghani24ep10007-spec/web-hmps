@@ -3,123 +3,316 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HMPS Sistem Informasi UNUGHA</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Struktur Organisasi HMPSSI</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* --- RESET & VARIABLES --- */
+        :root {
+            --primary-color: #2563eb; /* Royal Blue */
+            --secondary-color: #1e293b; /* Dark Slate */
+            --accent-color: #3b82f6;
+            --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+            --text-main: #1f2937;
+            --text-light: #6b7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* --- HEADER --- */
+        header {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            margin-bottom: 3rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        /* --- CONTAINER --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 50px 20px;
+        }
+
+        /* --- SECTION TITLES --- */
+        .section-title {
+            text-align: center;
+            margin: 3rem 0 2rem 0;
+            position: relative;
+        }
+
+        .section-title h2 {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
+        }
+
+        /* --- CARD STYLES --- */
+        .org-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            width: 280px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border-top: 5px solid var(--primary-color);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Foto Profil (Placeholder Icon) */
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            background: #e2e8f0;
+            border-radius: 50%;
+            margin: 0 auto 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-color);
+            border: 3px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Jika nanti ada foto asli, gunakan class ini pada tag img */
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        .nim {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            background: #eff6ff;
+            padding: 2px 10px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .position {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* Special styling for Ketua Umum */
+        .ketua-card {
+            width: 320px;
+            border-top: 5px solid #d97706; /* Gold */
+        }
+        .ketua-card .profile-img {
+            color: #d97706;
+            width: 120px;
+            height: 120px;
+            font-size: 3.5rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            .card { width: 100%; max-width: 350px; }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="container nav-container">
-            <h1 class="logo">HMPS <span>SI</span></h1>
-            <div class="menu-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Beranda</a></li>
-                <li><a href="#about">Tentang</a></li>
-                <li><a href="#team">Pengurus</a></li>
-                <li><a href="#contact" class="btn-daftar">Daftar</a></li>
-            </ul>
-        </div>
-    </nav>
+    <header>
+        <h1>HMPSSI</h1>
+        <p>Himpunan Mahasiswa Program Studi Sistem Informasi</p>
+    </header>
 
-    <section id="home" class="hero">
-        <div class="overlay"></div> <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
-            <h2>Transformasi Digital <br> Dimulai Dari Sini</h2>
-            <p>HMPS Sistem Informasi UNUGHA: Wadah kolaborasi mahasiswa untuk mencetak talenta IT masa depan.</p>
-            <div class="hero-buttons">
-                <a href="#about" class="btn btn-primary">Lihat Program</a>
-                <a href="#contact" class="btn btn-outline">Join Discord/WA</a>
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Pimpinan</h2>
+        </div>
+        <div class="org-grid">
+            <div class="card ketua-card">
+                <div class="profile-img">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="name">Ahmad Faqih</div>
+                <div class="nim">24EP10001</div>
+                <div class="position">Ketua Umum</div>
             </div>
         </div>
-    </section>
 
-    <section id="about" class="features">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-right">Kenapa SI UNUGHA?</h2>
-            <div class="features-grid">
-                <div class="card" data-aos="flip-left" data-aos-delay="100">
-                    <i class="fas fa-code"></i>
-                    <h3>Web Development</h3>
-                    <p>Fokus belajar Fullstack Web (Python, PHP, React) sesuai kebutuhan industri.</p>
-                </div>
-                <div class="card" data-aos="flip-left" data-aos-delay="200">
-                    <i class="fas fa-network-wired"></i>
-                    <h3>Networking</h3>
-                    <p>Praktik jaringan komputer, Mikrotik, dan keamanan siber dasar.</p>
-                </div>
-                <div class="card" data-aos="flip-left" data-aos-delay="300">
-                    <i class="fas fa-brain"></i>
-                    <h3>Data Analyst</h3>
-                    <p>Belajar mengolah data menjadi informasi berharga untuk bisnis.</p>
-                </div>
+        <div class="section-title">
+            <h2>Badan Pengurus Harian</h2>
+        </div>
+        <div class="org-grid">
+            <div class="card">
+                <div class="profile-img"><i class="fas fa-user-edit"></i></div>
+                <div class="name">Alfina Dinda Merliana</div>
+                <div class="nim">24EP10010</div>
+                <div class="position">Sekretaris</div>
+            </div>
+            <div class="card">
+                <div class="profile-img"><i class="fas fa-user-edit"></i></div>
+                <div class="name">Endhah Raihanah</div>
+                <div class="nim">255311005</div>
+                <div class="position">Sekretaris</div>
+            </div>
+            <div class="card">
+                <div class="profile-img"><i class="fas fa-wallet"></i></div>
+                <div class="name">Andreanis Syafalina D.P.</div>
+                <div class="nim">24EP10002</div>
+                <div class="position">Bendahara</div>
+            </div>
+            <div class="card">
+                <div class="profile-img"><i class="fas fa-wallet"></i></div>
+                <div class="name">Masyrifatul Husna</div>
+                <div class="nim">255311001</div>
+                <div class="position">Bendahara</div>
             </div>
         </div>
-    </section>
 
-    <section id="team" class="team">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Pengurus Inti</h2>
-            <p class="subtitle" data-aos="fade-up">Orang-orang dibalik layar HMPS SI</p>
-            
-            <div class="team-grid">
-                <div class="team-member" data-aos="zoom-in">
-                    <div class="member-img">
-                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Ketua">
-                    </div>
-                    <h3>Nama Ketua</h3>
-                    <p>Ketua Himpunan</p>
-                </div>
-
-                <div class="team-member" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="member-img">
-                        <img src="image_0.png" alt="Sekretaris">
-                    </div>
-                    <h3>Dinda Merlin</h3>
-                    <p>Sekretaris</p>
-                </div>
-
-                <div class="team-member" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="member-img">
-                        <img src="image_1.png" alt="Bendahara">
-                    </div>
-                    <h3>Nama Bendahara</h3>
-                    <p>Bendahara</p>
-                </div>
-                
-                <div class="team-member" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="member-img">
-                        <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Rizqi Ghani">
-                    </div>
-                    <h3>Rizqi Ghani</h3>
-                    <p>Divisi Media & Info</p>
-                </div>
-
+        <div class="section-title">
+            <h2>Divisi Internal</h2>
+        </div>
+        <div class="org-grid">
+            <div class="card">
+                <div class="profile-img"><i class="fas fa-users-cog"></i></div>
+                <div class="name">Alia Rizki Prasetya</div>
+                <div class="nim">24EP10008</div>
+                <div class="position">Ketua Divisi</div>
+            </div>
+            <div class="card">
+                <div class="profile-img"><i class="fas fa-user"></i></div>
+                <div class="name">Faiz Syafiqul Albab</div>
+                <div class="nim">255311004</div>
+                <div class="position">Anggota</div>
             </div>
         </div>
-    </section>
+
+        <div class="section-title">
+            <h2>Divisi Eksternal</h2>
+        </div>
+        <div class="org-grid">
+            <div class="card">
+                <div class="profile-img"><i class="fas fa-network-wired"></i></div>
+                <div class="name">Nawalia Nur Fitriyah</div>
+                <div class="nim">24EP10004</div>
+                <div class="position">Ketua Divisi</div>
+            </div>
+            <div class="card">
+                <div class="profile-img"><i class="fas fa-user"></i></div>
+                <div class="name">Lutfi Altofian</div>
+                <div class="nim">255311003</div>
+                <div class="position">Anggota</div>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <h2>Divisi Media & Informasi</h2>
+        </div>
+        <div class="org-grid">
+            <div class="card">
+                <div class="profile-img"><i class="fas fa-camera"></i></div>
+                <div class="name">Widadurrohman</div>
+                <div class="nim">24EP10009</div>
+                <div class="position">Ketua Divisi</div>
+            </div>
+            <div class="card">
+                <div class="profile-img"><i class="fas fa-user"></i></div>
+                <div class="name">Umi Latifah</div>
+                <div class="nim">255311002</div>
+                <div class="position">Anggota</div>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <h2>Divisi Science (Keilmuan)</h2>
+        </div>
+        <div class="org-grid">
+            <div class="card">
+                <div class="profile-img"><i class="fas fa-microscope"></i></div>
+                <div class="name">Toik Zakiyudin</div>
+                <div class="nim">24EP10003</div>
+                <div class="position">Ketua Divisi</div>
+            </div>
+            <div class="card">
+                <div class="profile-img"><i class="fas fa-user"></i></div>
+                <div class="name">Rizqi Ghani Adinata</div>
+                <div class="nim">24EP10007</div>
+                <div class="position">Anggota</div>
+            </div>
+        </div>
+
+    </div>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2025 HMPS Sistem Informasi UNUGHA</p>
-            <div class="socials">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
-            </div>
-        </div>
+        <p>&copy; 2026 HMPSSI - Web Organized by Ghani24</p>
     </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init(); // Menjalankan animasi
-    </script>
 </body>
 </html>
-
-
