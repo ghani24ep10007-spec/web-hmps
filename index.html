@@ -602,6 +602,46 @@
     </button>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+        <footer class="bg-slate-900 border-t border-slate-800 text-slate-400 py-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+        <div class="flex justify-center items-center gap-2 mb-4">
+            <i class="fa-solid fa-code-branch text-2xl text-blue-500"></i>
+            <span class="text-2xl font-bold text-white">HMPS SI</span>
+        </div>
+        <p class="mb-6">Membangun Generasi Emas Teknologi Informasi</p>
+        <div class="flex justify-center gap-6 mb-8">
+            <a href="#" class="hover:text-white transition"><i class="fa-brands fa-instagram text-xl"></i></a>
+            <a href="#" class="hover:text-white transition"><i class="fa-brands fa-linkedin text-xl"></i></a>
+            <a href="#" class="hover:text-white transition"><i class="fa-brands fa-github text-xl"></i></a>
+        </div>
+        <p class="text-sm text-slate-600">
+            &copy; 2026 HMPS Sistem Informasi UNUGHA. All rights reserved.
+        </p>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  // Menyalakan Animasi
+  AOS.init({
+    duration: 800, // Kecepatan animasi
+    once: true,    // Animasi cuma sekali saat scroll ke bawah
+  });
+
+  // 2. Script untuk Tombol Menu di HP (Agar bisa diklik)
+  const menuBtn = document.querySelector('[data-collapse-toggle="navbar-sticky"]');
+  const menuList = document.getElementById('navbar-sticky');
+
+  if(menuBtn && menuList) {
+      menuBtn.addEventListener('click', () => {
+          menuList.classList.toggle('hidden');
+      });
+  }
+</script>
+
+</body>
+</html>
     <script>
         // 1. Initialize AOS (Animate On Scroll)
         AOS.init({
