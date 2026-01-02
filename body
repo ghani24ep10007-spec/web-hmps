@@ -1,0 +1,17 @@
+<div id="preloader" class="fixed inset-0 z-[9999] bg-slate-900 flex items-center justify-center transition-opacity duration-500">
+    <div class="flex flex-col items-center gap-4">
+        <div class="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+        <span class="text-white font-mono text-sm animate-pulse">Initializing System...</span>
+    </div>
+</div>
+
+<script>
+    // Hilangkan preloader saat halaman selesai dimuat
+    window.addEventListener('load', () => {
+        const preloader = document.getElementById('preloader');
+        preloader.classList.add('opacity-0');
+        setTimeout(() => {
+            preloader.style.display = 'none';
+        }, 500);
+    });
+</script>
