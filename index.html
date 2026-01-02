@@ -3,532 +3,478 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HMPSSI UNUGHA - Official Web</title>
+    <title>HMPSSI UNUGHA - Future Tech</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* --- 1. SETUP & VARIABLES --- */
+        /* --- 1. CORE VARIABLES --- */
         :root {
-            --bg-dark: #0f172a;
-            --bg-card: rgba(30, 41, 59, 0.6);
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent-cyan: #06b6d4;
-            --accent-purple: #8b5cf6;
-            --accent-gold: #fbbf24;
-            --nav-height: 70px;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: var(--nav-height); /* Agar judul tidak ketutup navbar saat di-klik */
+            --bg-dark: #020617;
+            --primary: #0ea5e9; /* Sky Blue */
+            --secondary: #6366f1; /* Indigo */
+            --accent: #f43f5e; /* Rose */
+            --glass: rgba(15, 23, 42, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Outfit', sans-serif;
             background-color: var(--bg-dark);
-            color: var(--text-primary);
+            color: var(--text-main);
             overflow-x: hidden;
-            background-image: 
-                linear-gradient(rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.98)),
-                url("https://www.transparenttextures.com/patterns/cubes.png");
+            position: relative;
         }
 
-        /* --- 2. NAVBAR --- */
+        /* CANVAS BACKGROUND (PARTICLES) */
+        #canvas-container {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at center, #1e1b4b 0%, #020617 100%);
+        }
+
+        /* --- 2. NAVBAR PRO --- */
         .navbar {
             position: fixed;
-            top: 0;
-            width: 100%;
-            height: var(--nav-height);
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 5%;
+            top: 0; width: 100%;
+            padding: 15px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--glass-border);
             z-index: 1000;
+            transition: 0.3s;
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 800;
-            color: var(--accent-cyan);
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             letter-spacing: 1px;
         }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
+        .nav-menu {
+            display: flex; gap: 30px; list-style: none;
+            align-items: center;
         }
 
-        .nav-links li a {
+        .nav-link {
+            text-decoration: none; color: var(--text-muted);
+            font-weight: 500; font-size: 0.95rem;
+            transition: 0.3s; position: relative;
+        }
+
+        .nav-link:hover, .nav-link.active { color: var(--primary); }
+        .nav-link::after {
+            content: ''; position: absolute; bottom: -5px; left: 0;
+            width: 0; height: 2px; background: var(--primary); transition: 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        /* BUTTON ADMIN / OWNER */
+        .btn-owner {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            padding: 8px 20px;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
             text-decoration: none;
-            color: var(--text-secondary);
-            font-weight: 500;
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+            border: 1px solid rgba(255,255,255,0.2);
             transition: 0.3s;
-            position: relative;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .btn-owner:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(14, 165, 233, 0.6);
         }
 
-        .nav-links li a:hover, .nav-links li a.active {
-            color: var(--text-primary);
-        }
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: white; }
 
-        .nav-links li a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: var(--accent-cyan);
-            transition: 0.3s;
-        }
-
-        .nav-links li a:hover::after { width: 100%; }
-
-        /* Hamburger Menu (Mobile) */
-        .menu-toggle { display: none; font-size: 1.5rem; color: var(--text-primary); cursor: pointer; }
-
-        /* --- 3. SECTIONS GENERAL --- */
-        section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-header h2 {
-            font-size: 2.2rem;
-            color: var(--accent-cyan);
-            display: inline-block;
-            position: relative;
-        }
-
-        .section-header p {
-            color: var(--text-secondary);
-            margin-top: 10px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* --- 4. BERANDA (HERO) --- */
+        /* --- 3. HERO SECTION --- */
+        section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
+        
         #home {
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
             text-align: center;
-            padding-top: var(--nav-height);
-            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 70%);
+            padding-top: 80px;
         }
 
-        .hero-content h1 {
-            font-size: 3.5rem;
-            line-height: 1.2;
+        .hero-badge {
+            background: rgba(14, 165, 233, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(14, 165, 233, 0.3);
+            padding: 5px 15px; border-radius: 20px;
+            font-size: 0.8rem; letter-spacing: 2px;
             margin-bottom: 20px;
-            background: linear-gradient(to right, #fff, #94a3b8);
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        
+        .hero-title span { color: var(--primary); }
+
+        .typewriter {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            min-height: 1.6em;
+            margin-bottom: 40px;
+        }
+
+        /* --- 4. CARDS & GRID --- */
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 {
+            font-size: 2.5rem;
+            background: linear-gradient(to right, #fff, var(--text-muted));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            margin-bottom: 30px;
-        }
-
-        .btn {
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: linear-gradient(45deg, var(--accent-cyan), var(--accent-purple));
-            color: white;
-            box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 25px rgba(6, 182, 212, 0.6);
-        }
-
-        /* --- 5. TENTANG & KENAPA SI (GRID LAYOUT) --- */
-        .grid-2 {
+        .grid-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .feature-card {
-            background: var(--bg-card);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.05);
-            text-align: center;
-            transition: 0.3s;
-        }
-
-        .feature-card:hover {
-            border-color: var(--accent-cyan);
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--accent-cyan);
-            margin-bottom: 20px;
-        }
-
-        /* --- 6. PROGRAM KERJA --- */
-        .program-card {
-            background: var(--bg-card);
-            border-radius: 15px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: 0.3s;
-        }
-        
-        .program-card:hover {
-            transform: scale(1.02);
-            border-color: var(--accent-purple);
-        }
-
-        .p-content { padding: 25px; }
-        .p-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: var(--text-primary); }
-        .p-desc { font-size: 0.9rem; color: var(--text-secondary); }
-
-        /* --- 7. PENGURUS (DARI KODE SEBELUMNYA) --- */
-        .org-grid {
-            display: flex;
-            flex-wrap: wrap;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
             justify-content: center;
-            gap: 25px;
         }
 
         .card {
-            background: var(--bg-card);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            width: 280px;
-            padding: 30px 20px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 30px;
+            border-radius: 20px;
             text-align: center;
+            transition: all 0.4s ease;
             position: relative;
-            transition: all 0.4s;
-            opacity: 0;
-            transform: translateY(30px);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
         }
 
-        .card.visible { opacity: 1; transform: translateY(0); }
+        .card::before {
+            content: ''; position: absolute;
+            top: 0; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0); transform-origin: left; transition: 0.4s;
+        }
 
         .card:hover {
             transform: translateY(-10px);
-            border-color: rgba(6, 182, 212, 0.5);
-            box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+            border-color: var(--primary);
         }
+        .card:hover::before { transform: scaleX(1); }
 
         .profile-img {
-            width: 90px; height: 90px;
-            margin: 0 auto 15px;
+            width: 100px; height: 100px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #1e293b, #334155);
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
             display: flex; align-items: center; justify-content: center;
-            font-size: 2.5rem; color: var(--text-secondary);
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            font-size: 2.5rem; color: var(--primary);
+            border: 2px solid rgba(255,255,255,0.1);
+            position: relative; z-index: 2;
         }
 
-        .card:hover .profile-img { color: var(--text-primary); border-color: var(--accent-cyan); }
+        .card.ketua { border: 1px solid rgba(244, 63, 94, 0.4); background: rgba(244, 63, 94, 0.05); }
+        .card.ketua .profile-img { color: var(--accent); border-color: var(--accent); box-shadow: 0 0 20px rgba(244,63,94,0.3); }
+
+        .role-badge {
+            display: inline-block; padding: 4px 12px;
+            background: rgba(255,255,255,0.05); border-radius: 20px;
+            font-size: 0.8rem; color: var(--text-muted); margin-top: 5px;
+        }
+
+        /* --- 5. MODAL (OWNER MENU) --- */
+        .modal {
+            display: none; position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); z-index: 2000;
+            align-items: center; justify-content: center;
+            backdrop-filter: blur(5px);
+        }
         
-        .name { font-weight: 600; margin-bottom: 5px; }
-        .nim-badge { 
-            display: inline-block; font-size: 0.75rem; font-family: monospace;
-            background: rgba(6, 182, 212, 0.1); color: var(--accent-cyan);
-            padding: 4px 8px; border-radius: 4px; margin-bottom: 10px;
+        .modal-content {
+            background: #1e293b;
+            padding: 40px; border-radius: 20px;
+            width: 90%; max-width: 400px;
+            text-align: center;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 0 50px rgba(14, 165, 233, 0.2);
+            position: relative;
+            animation: popup 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .role { font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; }
 
-        /* Ketua Special */
-        .card.ketua { border-color: rgba(251, 191, 36, 0.3); background: linear-gradient(to bottom, rgba(251, 191, 36, 0.05), rgba(30, 41, 59, 0.8)); }
-        .card.ketua .nim-badge { color: var(--accent-gold); background: rgba(251, 191, 36, 0.1); }
+        @keyframes popup {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
 
-        /* --- FOOTER --- */
-        footer {
-            text-align: center; padding: 40px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            margin-top: 50px; color: var(--text-secondary); font-size: 0.9rem;
+        .modal h2 { margin-bottom: 20px; color: var(--primary); }
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 8px; font-size: 0.9rem; color: var(--text-muted); }
+        .form-group input {
+            width: 100%; padding: 12px;
+            background: #0f172a; border: 1px solid var(--glass-border);
+            color: white; border-radius: 8px; outline: none;
+        }
+        .form-group input:focus { border-color: var(--primary); }
+
+        .btn-login {
+            width: 100%; padding: 12px;
+            background: var(--primary); color: white; border: none;
+            border-radius: 8px; font-weight: bold; cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-login:hover { background: var(--secondary); }
+
+        .close-modal {
+            position: absolute; top: 15px; right: 20px;
+            font-size: 1.5rem; cursor: pointer; color: var(--text-muted);
         }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .navbar { padding: 0 20px; }
-            .nav-links {
-                position: absolute; right: 0; top: var(--nav-height);
-                background: #0f172a; height: 0; width: 100%;
-                flex-direction: column; align-items: center; overflow: hidden;
-                transition: 0.3s;
+            .nav-menu {
+                position: absolute; top: 70px; right: 0;
+                width: 100%; background: #0f172a;
+                flex-direction: column; padding: 20px;
+                display: none; border-bottom: 1px solid var(--glass-border);
             }
-            .nav-links.active { height: 300px; padding-top: 20px; border-bottom: 1px solid #334155;}
+            .nav-menu.active { display: flex; }
             .menu-toggle { display: block; }
-            .grid-2 { grid-template-columns: 1fr; }
-            .hero-content h1 { font-size: 2.5rem; }
-            .card { width: 100%; }
+            .hero-title { font-size: 2.5rem; }
+            .btn-owner { width: 100%; justify-content: center; }
         }
     </style>
 </head>
 <body>
 
+    <canvas id="canvas-container"></canvas>
+
     <nav class="navbar">
-        <div class="logo">HMPSSI</div>
+        <div class="logo"><i class="fas fa-network-wired"></i> HMPSSI</div>
         <div class="menu-toggle"><i class="fas fa-bars"></i></div>
-        <ul class="nav-links">
-            <li><a href="#home">Beranda</a></li>
-            <li><a href="#about">Tentang</a></li>
-            <li><a href="#why">Kenapa SI?</a></li>
-            <li><a href="#programs">Program</a></li>
-            <li><a href="#team">Pengurus</a></li>
+        <ul class="nav-menu">
+            <li><a href="#home" class="nav-link active">Beranda</a></li>
+            <li><a href="#about" class="nav-link">Tentang</a></li>
+            <li><a href="#team" class="nav-link">Struktur</a></li>
+            <li><a href="#program" class="nav-link">Program</a></li>
+            <li>
+                <a href="#" class="btn-owner" onclick="openModal()">
+                    <i class="fas fa-user-shield"></i> Owner Access
+                </a>
+            </li>
         </ul>
     </nav>
 
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div style="font-size: 3rem; color: var(--primary); margin-bottom: 10px;">
+                <i class="fas fa-fingerprint"></i>
+            </div>
+            <h2>Admin Portal</h2>
+            <p style="margin-bottom: 20px; color: var(--text-muted);">Verifikasi identitas untuk masuk.</p>
+            <form onsubmit="event.preventDefault(); alert('Halo Ghani! Selamat datang kembali di Dashboard.'); closeModal();">
+                <div class="form-group">
+                    <label>Username / ID</label>
+                    <input type="text" placeholder="Masukkan ID Pengurus" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn-login">MASUK SISTEM</button>
+            </form>
+        </div>
+    </div>
+
     <section id="home">
-        <div class="hero-content">
-            <div style="margin-bottom: 10px; color: var(--accent-cyan); font-weight: bold; letter-spacing: 2px;">WELCOME TO</div>
-            <h1>HMPSSI UNUGHA</h1>
-            <p>Wadah Kreativitas & Inovasi Mahasiswa Sistem Informasi.<br>Membangun Teknologi untuk Masa Depan.</p>
-            <a href="#team" class="btn btn-primary">Lihat Pengurus</a>
+        <div class="hero-badge">Welcome Future Leaders</div>
+        <h1 class="hero-title">HMPSSI <span>UNUGHA</span></h1>
+        <div class="typewriter">
+            <span id="typing-text"></span><span style="animation: blink 1s infinite">|</span>
         </div>
-    </section>
-
-    <section id="about">
-        <div class="section-header">
-            <h2>Tentang Kami</h2>
-        </div>
-        <div class="grid-2">
-            <div class="about-text">
-                <p>Himpunan Mahasiswa Program Studi Sistem Informasi (HMPSSI) Universitas Nahdlatul Ulama Al Ghazali adalah organisasi kemahasiswaan yang berfokus pada pengembangan soft skill dan hard skill mahasiswa di bidang teknologi dan manajemen informasi.</p>
-                <br>
-                <p>Kami berkomitmen untuk menciptakan lingkungan yang kolaboratif, inovatif, dan berlandaskan nilai-nilai Ahlussunnah wal Jamaah.</p>
-            </div>
-            <div style="text-align: center; font-size: 8rem; color: rgba(255,255,255,0.05);">
-                <i class="fas fa-users"></i>
-            </div>
-        </div>
-    </section>
-
-    <section id="why">
-        <div class="section-header">
-            <h2>Kenapa SI UNUGHA?</h2>
-            <p>Program Studi Sistem Informasi memadukan Ilmu Komputer dengan Manajemen Bisnis.</p>
-        </div>
-        <div class="feature-grid">
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-code"></i></div>
-                <h3>Coding & Dev</h3>
-                <p>Pelajari bahasa pemrograman modern seperti Python, Java, dan Web Development dari dasar hingga mahir.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-                <h3>Business Analyst</h3>
-                <p>Belajar menganalisis data dan proses bisnis untuk memberikan solusi teknologi yang tepat guna.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-network-wired"></i></div>
-                <h3>Networking</h3>
-                <p>Membangun relasi luas dengan sesama mahasiswa teknologi, alumni, dan praktisi industri.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="programs">
-        <div class="section-header">
-            <h2>Lihat Program</h2>
-            <p>Kegiatan unggulan yang kami jalankan.</p>
-        </div>
-        <div class="feature-grid">
-            <div class="program-card">
-                <div class="p-content">
-                    <div class="p-title"><i class="fas fa-laptop-code" style="color:var(--accent-purple)"></i> Tech Workshop</div>
-                    <div class="p-desc">Pelatihan rutin seputar teknologi terbaru, desain UI/UX, dan pemrograman Python.</div>
-                </div>
-            </div>
-            <div class="program-card">
-                <div class="p-content">
-                    <div class="p-title"><i class="fas fa-comments" style="color:var(--accent-gold)"></i> SI Talk</div>
-                    <div class="p-desc">Diskusi santai membahas isu teknologi terkini dan sharing session antar angkatan.</div>
-                </div>
-            </div>
-            <div class="program-card">
-                <div class="p-content">
-                    <div class="p-title"><i class="fas fa-campground" style="color:var(--accent-cyan)"></i> Makrab & Social</div>
-                    <div class="p-desc">Membangun kekeluargaan antar mahasiswa Sistem Informasi melalui kegiatan alam.</div>
-                </div>
-            </div>
+        <div style="display: flex; gap: 15px;">
+            <a href="#team" class="btn-owner" style="background: transparent; border: 1px solid var(--primary); color: var(--primary);">
+                Explore Team
+            </a>
+            <a href="#about" class="btn-owner">
+                Get Started
+            </a>
         </div>
     </section>
 
     <section id="team">
         <div class="section-header">
-            <h2>Struktur Organisasi</h2>
-            <p>Kabinet 2024 - 2025</p>
+            <h2>Core Team 2024</h2>
+            <p style="color: var(--text-muted)">The minds behind the innovation.</p>
         </div>
 
-        <h3 style="text-align: center; color: var(--text-secondary); margin-bottom:20px;">Ketua Umum</h3>
-        <div class="org-grid" style="margin-bottom: 40px;">
-            <div class="card ketua reveal-on-scroll">
+        <div class="grid-container">
+            <div class="card ketua">
                 <div class="profile-img"><i class="fas fa-crown"></i></div>
-                <div class="name">Ahmad Faqih</div>
-                <div class="nim-badge">24EP10001</div>
-                <div class="role">Ketua Umum</div>
+                <h3>Ahmad Faqih</h3>
+                <p style="color: var(--accent); font-weight: bold;">24EP10001</p>
+                <span class="role-badge">KETUA UMUM</span>
             </div>
-        </div>
 
-        <h3 style="text-align: center; color: var(--text-secondary); margin-bottom:20px;">Sekretaris & Bendahara</h3>
-        <div class="org-grid" style="margin-bottom: 40px;">
-            <div class="card reveal-on-scroll">
-                <div class="profile-img"><i class="fas fa-file-alt"></i></div>
-                <div class="name">Alfina Dinda M.</div>
-                <div class="nim-badge">24EP10010</div>
-                <div class="role">Sekretaris 1</div>
+            <div class="card">
+                <div class="profile-img"><i class="fas fa-pen-fancy"></i></div>
+                <h3>Alfina Dinda M.</h3>
+                <p style="color: var(--primary);">24EP10010</p>
+                <span class="role-badge">SEKRETARIS</span>
             </div>
-            <div class="card reveal-on-scroll">
-                <div class="profile-img"><i class="fas fa-file-alt"></i></div>
-                <div class="name">Endhah Raihanah</div>
-                <div class="nim-badge">255311005</div>
-                <div class="role">Sekretaris 2</div>
-            </div>
-            <div class="card reveal-on-scroll">
-                <div class="profile-img"><i class="fas fa-wallet"></i></div>
-                <div class="name">Andreanis Syafalina</div>
-                <div class="nim-badge">24EP10002</div>
-                <div class="role">Bendahara 1</div>
-            </div>
-            <div class="card reveal-on-scroll">
-                <div class="profile-img"><i class="fas fa-wallet"></i></div>
-                <div class="name">Masyrifatul Husna</div>
-                <div class="nim-badge">255311001</div>
-                <div class="role">Bendahara 2</div>
-            </div>
-        </div>
-
-        <h3 style="text-align: center; color: var(--text-secondary); margin-bottom:20px;">Divisi - Divisi</h3>
-        <div class="org-grid">
             
-            <div class="card reveal-on-scroll">
-                <div class="profile-img"><i class="fas fa-users-cog"></i></div>
-                <div class="name">Alia Rizki Prasetya</div>
-                <div class="nim-badge">24EP10008</div>
-                <div class="role">Ketua Div. Internal</div>
-            </div>
-            <div class="card reveal-on-scroll">
-                <div class="profile-img"><i class="fas fa-user"></i></div>
-                <div class="name">Faiz Syafiqul Albab</div>
-                <div class="nim-badge">255311004</div>
-                <div class="role">Anggota Internal</div>
+             <div class="card">
+                <div class="profile-img"><i class="fas fa-wallet"></i></div>
+                <h3>Andreanis S.D.P</h3>
+                <p style="color: var(--primary);">24EP10002</p>
+                <span class="role-badge">BENDAHARA</span>
             </div>
 
-            <div class="card reveal-on-scroll">
-                <div class="profile-img"><i class="fas fa-globe"></i></div>
-                <div class="name">Nawalia Nur Fitriyah</div>
-                <div class="nim-badge">24EP10004</div>
-                <div class="role">Ketua Div. Eksternal</div>
-            </div>
-            <div class="card reveal-on-scroll">
-                <div class="profile-img"><i class="fas fa-user"></i></div>
-                <div class="name">Lutfi Altofian</div>
-                <div class="nim-badge">255311003</div>
-                <div class="role">Anggota Eksternal</div>
-            </div>
-
-            <div class="card reveal-on-scroll">
-                <div class="profile-img"><i class="fas fa-camera"></i></div>
-                <div class="name">Widadurrohman</div>
-                <div class="nim-badge">24EP10009</div>
-                <div class="role">Ketua Div. MEDIFO</div>
-            </div>
-            <div class="card reveal-on-scroll">
-                <div class="profile-img"><i class="fas fa-user"></i></div>
-                <div class="name">Umi Latifah</div>
-                <div class="nim-badge">255311002</div>
-                <div class="role">Anggota MEDIFO</div>
-            </div>
-
-            <div class="card reveal-on-scroll">
-                <div class="profile-img"><i class="fas fa-microscope"></i></div>
-                <div class="name">Toik Zakiyudin</div>
-                <div class="nim-badge">24EP10003</div>
-                <div class="role">Ketua Div. Science</div>
-            </div>
-            <div class="card reveal-on-scroll">
+            <div class="card" style="border-color: var(--secondary);">
                 <div class="profile-img"><i class="fas fa-laptop-code"></i></div>
-                <div class="name">Rizqi Ghani Adinata</div>
-                <div class="nim-badge">24EP10007</div>
-                <div class="role">Anggota Science</div>
+                <h3>Rizqi Ghani A.</h3>
+                <p style="color: var(--secondary);">24EP10007</p>
+                <span class="role-badge">DIVISI SCIENCE</span>
             </div>
         </div>
-
     </section>
 
-    <footer>
-        <p>Web Organized by <b>Ghani24</b> &copy; 2026</p>
+    <footer style="text-align: center; padding: 50px; border-top: 1px solid var(--glass-border); margin-top: 50px;">
+        <p style="color: var(--text-muted);">Developed by <span style="color: var(--primary); font-weight: bold;">Ghani24</span> &copy; 2026</p>
     </footer>
 
     <script>
-        // Toggle Mobile Menu
+        // 1. TYPEWRITER EFFECT
+        const textToType = "Membangun Teknologi, Menginspirasi Negeri.";
+        const typeContainer = document.getElementById('typing-text');
+        let i = 0;
+
+        function typeWriter() {
+            if (i < textToType.length) {
+                typeContainer.innerHTML += textToType.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+        window.onload = function() {
+            typeWriter();
+            initParticles(); // Start background animation
+        };
+
+        // 2. MODAL LOGIC
+        const modal = document.getElementById('loginModal');
+        function openModal() {
+            modal.style.display = 'flex';
+        }
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+        // Close if clicked outside box
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // 3. MOBILE MENU
         const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
+        const navMenu = document.querySelector('.nav-menu');
         menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+            navMenu.classList.toggle('active');
         });
 
-        // Close menu when link is clicked
-        document.querySelectorAll('.nav-links li a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
+        // 4. PARTICLE BACKGROUND ANIMATION (The "HD" Secret)
+        function initParticles() {
+            const canvas = document.getElementById('canvas-container');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
 
-        // Scroll Animation
-        const observerOptions = { threshold: 0.1 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("visible");
+            let particlesArray;
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.directionX = (Math.random() * 0.4) - 0.2;
+                    this.directionY = (Math.random() * 0.4) - 0.2;
+                    this.size = Math.random() * 2;
+                    this.color = '#0ea5e9';
                 }
+                update() {
+                    if (this.x > canvas.width || this.x < 0) this.directionX = -this.directionX;
+                    if (this.y > canvas.height || this.y < 0) this.directionY = -this.directionY;
+                    this.x += this.directionX;
+                    this.y += this.directionY;
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                }
+            }
+
+            function connect() {
+                for (let a = 0; a < particlesArray.length; a++) {
+                    for (let b = a; b < particlesArray.length; b++) {
+                        let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+                        if (distance < (canvas.width/7) * (canvas.height/7)) {
+                            ctx.strokeStyle = 'rgba(14, 165, 233, 0.1)';
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                            ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            function init() {
+                particlesArray = [];
+                let numberOfParticles = (canvas.height * canvas.width) / 9000;
+                for (let i = 0; i < numberOfParticles; i++) {
+                    particlesArray.push(new Particle());
+                }
+            }
+
+            function animate() {
+                requestAnimationFrame(animate);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = 0; i < particlesArray.length; i++) {
+                    particlesArray[i].update();
+                    particlesArray[i].draw();
+                }
+                connect();
+            }
+
+            init();
+            animate();
+
+            window.addEventListener('resize', function(){
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                init();
             });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal-on-scroll').forEach(card => {
-            observer.observe(card);
-        });
+        }
     </script>
-
 </body>
 </html>
