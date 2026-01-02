@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HMPSSI UNUGHA - Future Tech</title>
+    <title>HMPSSI UNUGHA - Kabinet 2026/2027</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -14,6 +14,7 @@
             --primary: #0ea5e9; /* Sky Blue */
             --secondary: #6366f1; /* Indigo */
             --accent: #f43f5e; /* Rose */
+            --gold: #fbbf24; /* Gold for Ketua */
             --glass: rgba(15, 23, 42, 0.65);
             --glass-border: rgba(255, 255, 255, 0.08);
             --text-main: #f1f5f9;
@@ -138,24 +139,27 @@
         }
 
         /* --- 4. CARDS & GRID --- */
-        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header { text-align: center; margin-bottom: 40px; margin-top: 40px; }
         .section-header h2 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             background: linear-gradient(to right, #fff, var(--text-muted));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            display: inline-block;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
         }
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            justify-content: center;
-        }
+        
+        /* Grid Layouts */
+        .grid-leader { display: flex; justify-content: center; margin-bottom: 40px; }
+        .grid-bph { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; margin-bottom: 60px; justify-content: center; }
+        .grid-divisi { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
 
+        /* Card Styles */
         .card {
             background: var(--glass);
             border: 1px solid var(--glass-border);
-            padding: 30px;
+            padding: 25px;
             border-radius: 20px;
             text-align: center;
             transition: all 0.4s ease;
@@ -166,37 +170,59 @@
 
         .card::before {
             content: ''; position: absolute;
-            top: 0; left: 0; width: 100%; height: 4px;
+            top: 0; left: 0; width: 100%; height: 3px;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
             transform: scaleX(0); transform-origin: left; transition: 0.4s;
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px -10px rgba(0,0,0,0.5);
             border-color: var(--primary);
         }
         .card:hover::before { transform: scaleX(1); }
 
         .profile-img {
-            width: 100px; height: 100px;
+            width: 80px; height: 80px;
             border-radius: 50%;
-            margin: 0 auto 20px;
+            margin: 0 auto 15px;
             background: linear-gradient(135deg, #1e293b, #0f172a);
             display: flex; align-items: center; justify-content: center;
-            font-size: 2.5rem; color: var(--primary);
+            font-size: 2rem; color: var(--primary);
             border: 2px solid rgba(255,255,255,0.1);
             position: relative; z-index: 2;
         }
 
-        .card.ketua { border: 1px solid rgba(244, 63, 94, 0.4); background: rgba(244, 63, 94, 0.05); }
-        .card.ketua .profile-img { color: var(--accent); border-color: var(--accent); box-shadow: 0 0 20px rgba(244,63,94,0.3); }
-
+        /* Styling Nama & NIM */
+        .card h3 { font-size: 1.1rem; margin-bottom: 5px; color: var(--text-main); }
+        .nim-text { font-size: 0.9rem; color: var(--primary); font-family: monospace; letter-spacing: 0.5px; }
+        
         .role-badge {
             display: inline-block; padding: 4px 12px;
             background: rgba(255,255,255,0.05); border-radius: 20px;
-            font-size: 0.8rem; color: var(--text-muted); margin-top: 5px;
+            font-size: 0.75rem; color: var(--text-muted); margin-top: 10px;
+            text-transform: uppercase; letter-spacing: 1px;
+            border: 1px solid rgba(255,255,255,0.1);
         }
+
+        /* --- SPECIAL CARDS --- */
+        /* KETUA STYLE */
+        .card.ketua { 
+            border: 1px solid rgba(251, 191, 36, 0.4); 
+            background: rgba(251, 191, 36, 0.05); 
+            transform: scale(1.05);
+            max-width: 320px;
+            width: 100%;
+        }
+        .card.ketua:hover { transform: scale(1.08); box-shadow: 0 0 30px rgba(251, 191, 36, 0.2); }
+        .card.ketua .profile-img { color: var(--gold); border-color: var(--gold); box-shadow: 0 0 20px rgba(251, 191, 36, 0.2); width: 100px; height: 100px; font-size: 2.5rem; }
+        .card.ketua h3 { font-size: 1.3rem; }
+        .card.ketua .role-badge { background: var(--gold); color: #000; font-weight: bold; border: none; }
+
+        /* GHANI SPECIAL STYLE (Owner) */
+        .card.owner-card { border-color: var(--accent); }
+        .card.owner-card .profile-img { color: var(--accent); box-shadow: 0 0 15px rgba(244, 63, 94, 0.3); }
+        .card.owner-card .role-badge { background: rgba(244, 63, 94, 0.2); color: var(--accent); border-color: var(--accent); }
 
         /* --- 5. MODAL (OWNER MENU) --- */
         .modal {
@@ -258,6 +284,7 @@
             .menu-toggle { display: block; }
             .hero-title { font-size: 2.5rem; }
             .btn-owner { width: 100%; justify-content: center; }
+            .card.ketua { max-width: 100%; }
         }
     </style>
 </head>
@@ -270,9 +297,7 @@
         <div class="menu-toggle"><i class="fas fa-bars"></i></div>
         <ul class="nav-menu">
             <li><a href="#home" class="nav-link active">Beranda</a></li>
-            <li><a href="#about" class="nav-link">Tentang</a></li>
             <li><a href="#team" class="nav-link">Struktur</a></li>
-            <li><a href="#program" class="nav-link">Program</a></li>
             <li>
                 <a href="#" class="btn-owner" onclick="openModal()">
                     <i class="fas fa-user-shield"></i> Owner Access
@@ -304,65 +329,124 @@
     </div>
 
     <section id="home">
-        <div class="hero-badge">Welcome Future Leaders</div>
+        <div class="hero-badge">Periode 2026 - 2027</div>
         <h1 class="hero-title">HMPSSI <span>UNUGHA</span></h1>
         <div class="typewriter">
             <span id="typing-text"></span><span style="animation: blink 1s infinite">|</span>
         </div>
         <div style="display: flex; gap: 15px;">
             <a href="#team" class="btn-owner" style="background: transparent; border: 1px solid var(--primary); color: var(--primary);">
-                Explore Team
-            </a>
-            <a href="#about" class="btn-owner">
-                Get Started
+                Lihat Struktur
             </a>
         </div>
     </section>
 
     <section id="team">
-        <div class="section-header">
-            <h2>Core Team 2024</h2>
-            <p style="color: var(--text-muted)">The minds behind the innovation.</p>
-        </div>
-
-        <div class="grid-container">
+        
+        <div class="section-header"><h2>Pimpinan Tertinggi</h2></div>
+        <div class="grid-leader">
             <div class="card ketua">
                 <div class="profile-img"><i class="fas fa-crown"></i></div>
                 <h3>Ahmad Faqih</h3>
-                <p style="color: var(--accent); font-weight: bold;">24EP10001</p>
+                <p class="nim-text">24EP10001</p>
                 <span class="role-badge">KETUA UMUM</span>
+            </div>
+        </div>
+
+        <div class="section-header"><h2>Badan Pengurus Harian</h2></div>
+        <div class="grid-bph">
+            <div class="card">
+                <div class="profile-img"><i class="fas fa-pen-nib"></i></div>
+                <h3>Alfina Dinda Merliana</h3>
+                <p class="nim-text">24EP10010</p>
+                <span class="role-badge">SEKRETARIS</span>
+            </div>
+            <div class="card">
+                <div class="profile-img"><i class="fas fa-pen-nib"></i></div>
+                <h3>Endhah Raihanah</h3>
+                <p class="nim-text">255311005</p>
+                <span class="role-badge">SEKRETARIS</span>
+            </div>
+            <div class="card">
+                <div class="profile-img"><i class="fas fa-coins"></i></div>
+                <h3>Andreanis Syafalina D.P.</h3>
+                <p class="nim-text">24EP10002</p>
+                <span class="role-badge">BENDAHARA</span>
+            </div>
+            <div class="card">
+                <div class="profile-img"><i class="fas fa-coins"></i></div>
+                <h3>Masyrifatul Husna</h3>
+                <p class="nim-text">255311001</p>
+                <span class="role-badge">BENDAHARA</span>
+            </div>
+        </div>
+
+        <div class="section-header"><h2>Divisi & Staff Ahli</h2></div>
+        <div class="grid-divisi">
+            
+            <div class="card">
+                <div class="profile-img"><i class="fas fa-building"></i></div>
+                <h3>Alia Rizki Prasetya</h3>
+                <p class="nim-text">24EP10008</p>
+                <span class="role-badge">KETUA DIV. INTERNAL</span>
+            </div>
+            <div class="card">
+                <div class="profile-img"><i class="fas fa-user-shield"></i></div>
+                <h3>Faiz Syafiqul Albab</h3>
+                <p class="nim-text">255311004</p>
+                <span class="role-badge">ANGGOTA INTERNAL</span>
             </div>
 
             <div class="card">
-                <div class="profile-img"><i class="fas fa-pen-fancy"></i></div>
-                <h3>Alfina Dinda M.</h3>
-                <p style="color: var(--primary);">24EP10010</p>
-                <span class="role-badge">SEKRETARIS</span>
+                <div class="profile-img"><i class="fas fa-globe-asia"></i></div>
+                <h3>Nawalia Nur Fitriyah</h3>
+                <p class="nim-text">24EP10004</p>
+                <span class="role-badge">KETUA DIV. EKSTERNAL</span>
             </div>
-            
-             <div class="card">
-                <div class="profile-img"><i class="fas fa-wallet"></i></div>
-                <h3>Andreanis S.D.P</h3>
-                <p style="color: var(--primary);">24EP10002</p>
-                <span class="role-badge">BENDAHARA</span>
+            <div class="card">
+                <div class="profile-img"><i class="fas fa-handshake"></i></div>
+                <h3>Lutfi Altofian</h3>
+                <p class="nim-text">255311003</p>
+                <span class="role-badge">ANGGOTA EKSTERNAL</span>
             </div>
 
-            <div class="card" style="border-color: var(--secondary);">
-                <div class="profile-img"><i class="fas fa-laptop-code"></i></div>
-                <h3>Rizqi Ghani A.</h3>
-                <p style="color: var(--secondary);">24EP10007</p>
-                <span class="role-badge">DIVISI SCIENCE</span>
+            <div class="card">
+                <div class="profile-img"><i class="fas fa-camera"></i></div>
+                <h3>Widadurrohman</h3>
+                <p class="nim-text">24EP10009</p>
+                <span class="role-badge">KETUA DIV. MEDIFO</span>
             </div>
+            <div class="card">
+                <div class="profile-img"><i class="fas fa-photo-video"></i></div>
+                <h3>Umi Latifah</h3>
+                <p class="nim-text">255311002</p>
+                <span class="role-badge">ANGGOTA MEDIFO</span>
+            </div>
+
+            <div class="card">
+                <div class="profile-img"><i class="fas fa-microscope"></i></div>
+                <h3>Toik Zakiyudin</h3>
+                <p class="nim-text">24EP10003</p>
+                <span class="role-badge">KETUA DIV. SCIENCE</span>
+            </div>
+            
+            <div class="card owner-card">
+                <div class="profile-img"><i class="fas fa-laptop-code"></i></div>
+                <h3>Rizqi Ghani Adinata</h3>
+                <p class="nim-text">24EP10007</p>
+                <span class="role-badge">ANGGOTA SCIENCE</span>
+            </div>
+
         </div>
     </section>
 
     <footer style="text-align: center; padding: 50px; border-top: 1px solid var(--glass-border); margin-top: 50px;">
-        <p style="color: var(--text-muted);">Developed by <span style="color: var(--primary); font-weight: bold;">Ghani24</span> &copy; 2026</p>
+        <p style="color: var(--text-muted);">HMPSSI UNUGHA 2026 - Developed by <span style="color: var(--primary); font-weight: bold;">Ghani24</span></p>
     </footer>
 
     <script>
         // 1. TYPEWRITER EFFECT
-        const textToType = "Membangun Teknologi, Menginspirasi Negeri.";
+        const textToType = "Kabinet Transformasi Digital 2026/2027";
         const typeContainer = document.getElementById('typing-text');
         let i = 0;
 
@@ -375,32 +459,21 @@
         }
         window.onload = function() {
             typeWriter();
-            initParticles(); // Start background animation
+            initParticles(); 
         };
 
         // 2. MODAL LOGIC
         const modal = document.getElementById('loginModal');
-        function openModal() {
-            modal.style.display = 'flex';
-        }
-        function closeModal() {
-            modal.style.display = 'none';
-        }
-        // Close if clicked outside box
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
+        function openModal() { modal.style.display = 'flex'; }
+        function closeModal() { modal.style.display = 'none'; }
+        window.onclick = function(event) { if (event.target == modal) closeModal(); }
 
         // 3. MOBILE MENU
         const menuToggle = document.querySelector('.menu-toggle');
         const navMenu = document.querySelector('.nav-menu');
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
+        menuToggle.addEventListener('click', () => { navMenu.classList.toggle('active'); });
 
-        // 4. PARTICLE BACKGROUND ANIMATION (The "HD" Secret)
+        // 4. PARTICLE BACKGROUND ANIMATION
         function initParticles() {
             const canvas = document.getElementById('canvas-container');
             const ctx = canvas.getContext('2d');
@@ -468,7 +541,6 @@
 
             init();
             animate();
-
             window.addEventListener('resize', function(){
                 canvas.width = window.innerWidth;
                 canvas.height = window.innerHeight;
