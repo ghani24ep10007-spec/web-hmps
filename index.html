@@ -1,712 +1,712 @@
-<!DOCTYPE html>
-<html lang="id" class="scroll-smooth"></html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HMPSSI UNUGHA - Next Gen Portal</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!DOCTYPE html>
+    <html lang="id" class="scroll-smooth"></html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HMPSSI UNUGHA - Next Gen Portal</title>
+        
+        <script src="https://cdn.tailwindcss.com"></script>
+        
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#0f172a', // Slate 900
-                        secondary: '#1e293b', // Slate 800
-                        accent: '#3b82f6',  // Blue 500
-                        brand: '#2563eb',   // Blue 600
-                    },
-                    fontFamily: {
-                        sans: ['Outfit', 'sans-serif'], // Font lebih modern dari Inter
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: '#0f172a', // Slate 900
+                            secondary: '#1e293b', // Slate 800
+                            accent: '#3b82f6',  // Blue 500
+                            brand: '#2563eb',   // Blue 600
+                        },
+                        fontFamily: {
+                            sans: ['Outfit', 'sans-serif'], // Font lebih modern dari Inter
+                        },
+                        animation: {
+                            'float': 'float 6s ease-in-out infinite',
+                        },
+                        keyframes: {
+                            float: {
+                                '0%, 100%': { transform: 'translateY(0)' },
+                                '50%': { transform: 'translateY(-20px)' },
+                            }
                         }
                     }
                 }
             }
-        }
-    </script>
-    
-    <style>
-        /* Custom Scrollbar supaya terlihat Techy */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #3b82f6;
-            border-radius: 5px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #2563eb;
-        }
+        </script>
+        
+        <style>
+            /* Custom Scrollbar supaya terlihat Techy */
+            ::-webkit-scrollbar {
+                width: 10px;
+            }
+            ::-webkit-scrollbar-track {
+                background: #f1f1f1;
+            }
+            ::-webkit-scrollbar-thumb {
+                background: #3b82f6;
+                border-radius: 5px;
+            }
+            ::-webkit-scrollbar-thumb:hover {
+                background: #2563eb;
+            }
 
-        /* Typing Effect Cursor */
-        .typing-cursor::after {
-            content: '|';
-            animation: blink 1s step-start infinite;
-        }
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-    </style>
-</head>
-<body class="bg-gray-50 text-gray-800 font-sans overflow-x-hidden">
-    <nav class="fixed w-full z-50 top-0 start-0 border-b border-gray-200 bg-white/90 backdrop-blur-md">
-  <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between p-4">
-    
-    <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <div class="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center text-white">
-            <i class="fa-solid fa-code-branch text-xl"></i>
+            /* Typing Effect Cursor */
+            .typing-cursor::after {
+                content: '|';
+                animation: blink 1s step-start infinite;
+            }
+            @keyframes blink {
+                50% { opacity: 0; }
+            }
+        </style>
+    </head>
+    <body class="bg-gray-50 text-gray-800 font-sans overflow-x-hidden">
+        <nav class="fixed w-full z-50 top-0 start-0 border-b border-gray-200 bg-white/90 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between p-4">
+        
+        <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <div class="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center text-white">
+                <i class="fa-solid fa-code-branch text-xl"></i>
+            </div>
+            <span class="self-center text-2xl font-bold whitespace-nowrap text-slate-900">HMPS SI</span>
+        </a>
+
+        <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-sticky" aria-expanded="false">
+            <span class="sr-only">Buka menu utama</span>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+            </svg>
+        </button>
+
+        <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+        <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent">
+            
+            <li>
+            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 transition-colors">Beranda</a>
+            </li>
+            
+            <li>
+            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 transition-colors">Profil</a>
+            </li>
+
+            <li>
+            <a href="#download" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0" aria-current="page">Bank Materi</a>
+            </li>
+
+            <li>
+            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 transition-colors">Kegiatan</a>
+            </li>
+
+            <li>
+            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 transition-colors">Kontak</a>
+            </li>
+        </ul>
         </div>
-        <span class="self-center text-2xl font-bold whitespace-nowrap text-slate-900">HMPS SI</span>
-    </a>
-
-    <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-sticky" aria-expanded="false">
-        <span class="sr-only">Buka menu utama</span>
-        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-        </svg>
-    </button>
-
-    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-      <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent">
-        
-        <li>
-          <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 transition-colors">Beranda</a>
-        </li>
-        
-        <li>
-          <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 transition-colors">Profil</a>
-        </li>
-
-        <li>
-          <a href="#download" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0" aria-current="page">Bank Materi</a>
-        </li>
-
-        <li>
-          <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 transition-colors">Kegiatan</a>
-        </li>
-
-        <li>
-          <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 transition-colors">Kontak</a>
-        </li>
-      </ul>
     </div>
-  </div>
-</nav>
-
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
-                    <div class="w-10 h-10 bg-accent rounded-lg flex items-center justify-center text-white shadow-lg shadow-blue-500/30">
-                        <i class="fa-solid fa-code text-xl"></i>
-                    </div>
-                    <div>
-                        <span class="block font-bold text-xl tracking-tight text-primary leading-none">HMPSSI</span>
-                        <span class="text-xs text-gray-500 font-medium">UNUGHA CILACAP</span>
-                    </div>
-                </div>
-                
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#home" class="text-sm font-medium text-gray-600 hover:text-accent transition relative group">
-                        Beranda <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
-                    </a>
-                    <a href="#about" class="text-sm font-medium text-gray-600 hover:text-accent transition relative group">
-                        Tentang <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
-                    </a>
-                    <a href="#proker" class="text-sm font-medium text-gray-600 hover:text-accent transition relative group">
-                        Proker <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
-                    </a>
-                    <a href="#struktur" class="text-sm font-medium text-gray-600 hover:text-accent transition relative group">
-                        Struktur <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
-                    </a>
-                    <a href="#contact" class="px-5 py-2.5 bg-primary text-white text-sm font-medium rounded-full shadow-lg hover:shadow-xl hover:bg-secondary transition transform hover:-translate-y-0.5">
-                        Hubungi Kami
-                    </a>
-                </div>
-
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-btn" class="text-gray-600 hover:text-primary focus:outline-none p-2">
-                        <i class="fa-solid fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t absolute w-full shadow-xl">
-            <div class="px-4 pt-2 pb-6 space-y-1">
-                <a href="#home" class="block py-3 px-4 text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-accent rounded-md">Beranda</a>
-                <a href="#about" class="block py-3 px-4 text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-accent rounded-md">Tentang</a>
-                <a href="#proker" class="block py-3 px-4 text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-accent rounded-md">Proker</a>
-                <a href="#struktur" class="block py-3 px-4 text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-accent rounded-md">Struktur</a>
-            </div>
-        </div>
     </nav>
 
-    <section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-primary">
-        <div class="absolute inset-0 z-0">
-            <div class="absolute inset-0 bg-gradient-to-r from-primary to-blue-900 opacity-90"></div>
-            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-30" alt="Background">
-        </div>
+        <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-20">
+                    <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                        <div class="w-10 h-10 bg-accent rounded-lg flex items-center justify-center text-white shadow-lg shadow-blue-500/30">
+                            <i class="fa-solid fa-code text-xl"></i>
+                        </div>
+                        <div>
+                            <span class="block font-bold text-xl tracking-tight text-primary leading-none">HMPSSI</span>
+                            <span class="text-xs text-gray-500 font-medium">UNUGHA CILACAP</span>
+                        </div>
+                    </div>
+                    
+                    <div class="hidden md:flex space-x-8 items-center">
+                        <a href="#home" class="text-sm font-medium text-gray-600 hover:text-accent transition relative group">
+                            Beranda <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
+                        </a>
+                        <a href="#about" class="text-sm font-medium text-gray-600 hover:text-accent transition relative group">
+                            Tentang <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
+                        </a>
+                        <a href="#proker" class="text-sm font-medium text-gray-600 hover:text-accent transition relative group">
+                            Proker <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
+                        </a>
+                        <a href="#struktur" class="text-sm font-medium text-gray-600 hover:text-accent transition relative group">
+                            Struktur <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
+                        </a>
+                        <a href="#contact" class="px-5 py-2.5 bg-primary text-white text-sm font-medium rounded-full shadow-lg hover:shadow-xl hover:bg-secondary transition transform hover:-translate-y-0.5">
+                            Hubungi Kami
+                        </a>
+                    </div>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
-            <div data-aos="fade-right" data-aos-duration="1000">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 backdrop-blur-sm text-blue-300 text-sm font-semibold mb-6">
-                    <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-                    Open Recruitment 2026
-                </div>
-                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-                    Inovasi Tanpa <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Batas.</span>
-                </h1>
-                <p class="text-xl text-gray-300 mb-8 max-w-lg">
-                    HMPSSI UNUGHA: <span id="typewriter" class="text-white font-semibold typing-cursor"></span>
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#about" class="px-8 py-4 bg-accent hover:bg-blue-600 text-white font-bold rounded-xl transition shadow-lg shadow-blue-500/40 transform hover:-translate-y-1">
-                        Jelajahi Kami
-                    </a>
-                    <a href="#download" class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl backdrop-blur-sm border border-white/20 transition flex items-center gap-2 group">
-                        <i class="fa-solid fa-download group-hover:animate-bounce"></i> Unduh Modul
-                    </a>
+                    <div class="md:hidden flex items-center">
+                        <button id="mobile-btn" class="text-gray-600 hover:text-primary focus:outline-none p-2">
+                            <i class="fa-solid fa-bars text-2xl"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
             
-            <div class="hidden md:block relative" data-aos="fade-left" data-aos-duration="1200">
-                <div class="absolute -inset-4 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full blur-3xl opacity-30 animate-pulse"></div>
-                <img src="https://cdni.iconscout.com/illustration/premium/thumb/web-development-2974925-2477356.png" alt="Hero Illustration" class="relative w-full drop-shadow-2xl animate-float">
+            <div id="mobile-menu" class="hidden md:hidden bg-white border-t absolute w-full shadow-xl">
+                <div class="px-4 pt-2 pb-6 space-y-1">
+                    <a href="#home" class="block py-3 px-4 text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-accent rounded-md">Beranda</a>
+                    <a href="#about" class="block py-3 px-4 text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-accent rounded-md">Tentang</a>
+                    <a href="#proker" class="block py-3 px-4 text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-accent rounded-md">Proker</a>
+                    <a href="#struktur" class="block py-3 px-4 text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-accent rounded-md">Struktur</a>
+                </div>
             </div>
+        </nav>
+
+        <section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-primary">
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 bg-gradient-to-r from-primary to-blue-900 opacity-90"></div>
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-30" alt="Background">
+            </div>
+
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 backdrop-blur-sm text-blue-300 text-sm font-semibold mb-6">
+                        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                        Open Recruitment 2026
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                        Inovasi Tanpa <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Batas.</span>
+                    </h1>
+                    <p class="text-xl text-gray-300 mb-8 max-w-lg">
+                        HMPSSI UNUGHA: <span id="typewriter" class="text-white font-semibold typing-cursor"></span>
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#about" class="px-8 py-4 bg-accent hover:bg-blue-600 text-white font-bold rounded-xl transition shadow-lg shadow-blue-500/40 transform hover:-translate-y-1">
+                            Jelajahi Kami
+                        </a>
+                        <a href="#download" class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl backdrop-blur-sm border border-white/20 transition flex items-center gap-2 group">
+                            <i class="fa-solid fa-download group-hover:animate-bounce"></i> Unduh Modul
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hidden md:block relative" data-aos="fade-left" data-aos-duration="1200">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full blur-3xl opacity-30 animate-pulse"></div>
+                    <img src="https://cdni.iconscout.com/illustration/premium/thumb/web-development-2974925-2477356.png" alt="Hero Illustration" class="relative w-full drop-shadow-2xl animate-float">
+                </div>
+            </div>
+            
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white/50 animate-bounce">
+                <i class="fa-solid fa-chevron-down text-2xl"></i>
+            </div>
+        </section>
+
+        <section id="about" class="py-24 bg-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary">Tentang Kami</h2>
+                    <div class="w-24 h-1.5 bg-accent mx-auto mt-4 rounded-full"></div>
+                    <p class="mt-4 text-gray-600">Mewujudkan Mahasiswa IT yang Berkompeten & Berakhlak</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition duration-300 group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-white transition">
+                            <i class="fa-solid fa-eye text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3">Visi 2030</h3>
+                        <p class="text-gray-600 leading-relaxed">Menjadi kiblat pergerakan mahasiswa IT di Cilacap yang unggul dalam rekayasa perangkat lunak dan jaringan.</p>
+                    </div>
+                    
+                    <div class="md:col-span-1 flex items-center justify-center" data-aos="zoom-in">
+                        <div class="relative w-full h-64 md:h-full rounded-2xl overflow-hidden shadow-2xl group">
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                                <p class="text-white font-bold">Solidaritas Tanpa Batas</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition duration-300 group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-white transition">
+                            <i class="fa-solid fa-rocket text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3">Misi Utama</h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i> Pelatihan Coding Rutin</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i> Pengabdian Masyarakat</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i> Kompetisi E-Sport & IT</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="proker" class="py-24 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-primary mb-16" data-aos="fade-up">Program Kerja Unggulan</h2>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-2xl shadow-lg p-1 overflow-hidden hover:-translate-y-2 transition duration-300" data-aos="flip-left" data-aos-delay="100">
+                        <div class="p-6 h-full flex flex-col">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="p-3 bg-green-100 rounded-lg text-green-600"><i class="fa-brands fa-python text-3xl"></i></div>
+                                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold uppercase">Selesai</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Python Bootcamp</h3>
+                            <p class="text-gray-500 text-sm mb-4 flex-grow">Pelatihan intensif 3 hari membahas sintaks dasar, OOP, hingga pembuatan bot sederhana.</p>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-200 mt-auto">
+                                <div class="bg-green-600 h-2.5 rounded-full" style="width: 100%"></div>
+                            </div>
+                            <span class="text-xs text-gray-400 mt-2 block">Progress: 100%</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-lg p-1 overflow-hidden hover:-translate-y-2 transition duration-300" data-aos="flip-left" data-aos-delay="200">
+                        <div class="p-6 h-full flex flex-col">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="p-3 bg-yellow-100 rounded-lg text-yellow-600"><i class="fa-solid fa-fire text-3xl"></i></div>
+                                <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-xs font-bold uppercase">Segera</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Makrab SI 2026</h3>
+                            <p class="text-gray-500 text-sm mb-4 flex-grow">Malam keakraban di Baturraden. Full games, sharing session, dan api unggun.</p>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-200 mt-auto">
+                                <div class="bg-yellow-500 h-2.5 rounded-full animate-pulse" style="width: 20%"></div>
+                            </div>
+                            <span class="text-xs text-gray-400 mt-2 block">Persiapan: 20%</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-lg p-1 overflow-hidden hover:-translate-y-2 transition duration-300" data-aos="flip-left" data-aos-delay="300">
+                        <div class="p-6 h-full flex flex-col">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="p-3 bg-blue-100 rounded-lg text-blue-600"><i class="fa-solid fa-laptop-medical text-3xl"></i></div>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-bold uppercase">Bulanan</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Service Amal</h3>
+                            <p class="text-gray-500 text-sm mb-4 flex-grow">Install ulang Windows/Linux dan pembersihan hardware gratis untuk mahasiswa.</p>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-200 mt-auto">
+                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 80%"></div>
+                            </div>
+                            <span class="text-xs text-gray-400 mt-2 block">Konsistensi: 80%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <section id="home" class="relative bg-slate-900 text-white py-32 lg:h-screen flex items-center">
+        <div class="absolute inset-0 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80" alt="Background" class="w-full h-full object-cover opacity-20">
         </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+            <span class="text-blue-400 font-bold tracking-wider uppercase text-sm mb-4 block">HMPS Sistem Informasi</span>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                Membangun Inovasi,<br>Menguasai Teknologi
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                Wadah aspirasi, kreasi, dan pengembangan diri mahasiswa Sistem Informasi untuk masa depan digital.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 mt-8 animate-fade-in-up">
         
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white/50 animate-bounce">
-            <i class="fa-solid fa-chevron-down text-2xl"></i>
-        </div>
-    </section>
+        <a href="#struktur" class="group relative px-8 py-3 bg-blue-600 hover:bg-blue-500 rounded-full font-bold text-white transition-all duration-300 shadow-lg hover:shadow-blue-500/50 flex items-center gap-2">
+            <span>Jelajahi Profil</span>
+            <i class="fa-solid fa-arrow-down group-hover:translate-y-1 transition-transform"></i>
+        </a>
 
-    <section id="about" class="py-24 bg-white relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold text-primary">Tentang Kami</h2>
-                <div class="w-24 h-1.5 bg-accent mx-auto mt-4 rounded-full"></div>
-                <p class="mt-4 text-gray-600">Mewujudkan Mahasiswa IT yang Berkompeten & Berakhlak</p>
-            </div>
+        <a href="#download" class="px-8 py-3 bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 rounded-full font-semibold text-white transition-all flex items-center gap-2">
+            <i class="fa-solid fa-cloud-arrow-down"></i>
+            <span>Ambil Modul</span>
+        </a>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition duration-300 group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-white transition">
-                        <i class="fa-solid fa-eye text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-primary mb-3">Visi 2030</h3>
-                    <p class="text-gray-600 leading-relaxed">Menjadi kiblat pergerakan mahasiswa IT di Cilacap yang unggul dalam rekayasa perangkat lunak dan jaringan.</p>
-                </div>
-                
-                <div class="md:col-span-1 flex items-center justify-center" data-aos="zoom-in">
-                    <div class="relative w-full h-64 md:h-full rounded-2xl overflow-hidden shadow-2xl group">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
-                            <p class="text-white font-bold">Solidaritas Tanpa Batas</p>
-                        </div>
-                    </div>
-                </div>
+        <a href="#proker" class="px-8 py-3 bg-transparent border border-gray-500 hover:border-blue-400 hover:text-blue-400 text-gray-400 rounded-full font-semibold transition-all flex items-center gap-2">
+            <i class="fa-solid fa-list-check"></i>
+            <span>Proker</span>
+        </a>
 
-                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition duration-300 group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-white transition">
-                        <i class="fa-solid fa-rocket text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-primary mb-3">Misi Utama</h3>
-                    <ul class="space-y-3 text-gray-600">
-                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i> Pelatihan Coding Rutin</li>
-                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i> Pengabdian Masyarakat</li>
-                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i> Kompetisi E-Sport & IT</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="proker" class="py-24 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-primary mb-16" data-aos="fade-up">Program Kerja Unggulan</h2>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-2xl shadow-lg p-1 overflow-hidden hover:-translate-y-2 transition duration-300" data-aos="flip-left" data-aos-delay="100">
-                    <div class="p-6 h-full flex flex-col">
-                        <div class="flex justify-between items-start mb-4">
-                            <div class="p-3 bg-green-100 rounded-lg text-green-600"><i class="fa-brands fa-python text-3xl"></i></div>
-                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold uppercase">Selesai</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Python Bootcamp</h3>
-                        <p class="text-gray-500 text-sm mb-4 flex-grow">Pelatihan intensif 3 hari membahas sintaks dasar, OOP, hingga pembuatan bot sederhana.</p>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-200 mt-auto">
-                            <div class="bg-green-600 h-2.5 rounded-full" style="width: 100%"></div>
-                        </div>
-                        <span class="text-xs text-gray-400 mt-2 block">Progress: 100%</span>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-2xl shadow-lg p-1 overflow-hidden hover:-translate-y-2 transition duration-300" data-aos="flip-left" data-aos-delay="200">
-                    <div class="p-6 h-full flex flex-col">
-                        <div class="flex justify-between items-start mb-4">
-                            <div class="p-3 bg-yellow-100 rounded-lg text-yellow-600"><i class="fa-solid fa-fire text-3xl"></i></div>
-                            <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-xs font-bold uppercase">Segera</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Makrab SI 2026</h3>
-                        <p class="text-gray-500 text-sm mb-4 flex-grow">Malam keakraban di Baturraden. Full games, sharing session, dan api unggun.</p>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-200 mt-auto">
-                            <div class="bg-yellow-500 h-2.5 rounded-full animate-pulse" style="width: 20%"></div>
-                        </div>
-                        <span class="text-xs text-gray-400 mt-2 block">Persiapan: 20%</span>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-2xl shadow-lg p-1 overflow-hidden hover:-translate-y-2 transition duration-300" data-aos="flip-left" data-aos-delay="300">
-                    <div class="p-6 h-full flex flex-col">
-                        <div class="flex justify-between items-start mb-4">
-                            <div class="p-3 bg-blue-100 rounded-lg text-blue-600"><i class="fa-solid fa-laptop-medical text-3xl"></i></div>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-bold uppercase">Bulanan</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Service Amal</h3>
-                        <p class="text-gray-500 text-sm mb-4 flex-grow">Install ulang Windows/Linux dan pembersihan hardware gratis untuk mahasiswa.</p>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-200 mt-auto">
-                            <div class="bg-blue-600 h-2.5 rounded-full" style="width: 80%"></div>
-                        </div>
-                        <span class="text-xs text-gray-400 mt-2 block">Konsistensi: 80%</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-   <section id="home" class="relative bg-slate-900 text-white py-32 lg:h-screen flex items-center">
-    <div class="absolute inset-0 overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80" alt="Background" class="w-full h-full object-cover opacity-20">
     </div>
-
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-        <span class="text-blue-400 font-bold tracking-wider uppercase text-sm mb-4 block">HMPS Sistem Informasi</span>
-        <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Membangun Inovasi,<br>Menguasai Teknologi
-        </h1>
-        <p class="text-xl md:text-2xl text-gray-300 mb-10 max-w-2xl mx-auto">
-            Wadah aspirasi, kreasi, dan pengembangan diri mahasiswa Sistem Informasi untuk masa depan digital.
-        </p>
-        <div class="flex flex-wrap justify-center gap-4 mt-8 animate-fade-in-up">
-    
-    <a href="#struktur" class="group relative px-8 py-3 bg-blue-600 hover:bg-blue-500 rounded-full font-bold text-white transition-all duration-300 shadow-lg hover:shadow-blue-500/50 flex items-center gap-2">
-        <span>Jelajahi Profil</span>
-        <i class="fa-solid fa-arrow-down group-hover:translate-y-1 transition-transform"></i>
-    </a>
-
-    <a href="#download" class="px-8 py-3 bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 rounded-full font-semibold text-white transition-all flex items-center gap-2">
-        <i class="fa-solid fa-cloud-arrow-down"></i>
-        <span>Ambil Modul</span>
-    </a>
-
-    <a href="#proker" class="px-8 py-3 bg-transparent border border-gray-500 hover:border-blue-400 hover:text-blue-400 text-gray-400 rounded-full font-semibold transition-all flex items-center gap-2">
-        <i class="fa-solid fa-list-check"></i>
-        <span>Proker</span>
-    </a>
-
-</div>
-</section>
-
-<section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-            
-            <div class="relative">
-                <div class="absolute inset-0 bg-blue-100 rounded-2xl transform translate-x-3 translate-y-3"></div>
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ketua HMPS" class="relative rounded-2xl shadow-xl w-full object-cover h-[400px]">
-            </div>
-
-            <div>
-                <span class="text-blue-600 font-bold tracking-wider uppercase text-sm">Sambutan Ketua Himpunan</span>
-                <h2 class="text-3xl font-bold text-slate-900 mt-2 mb-6">Satukan Langkah Menuju Progresivitas</h2>
-                <p class="text-gray-600 mb-6 leading-relaxed">
-                    "Assalamu'alaikum Wr. Wb. Selamat datang di website resmi HMPS SI. Di era disrupsi teknologi ini, mahasiswa Sistem Informasi memegang peran kunci. Kami hadir untuk memfasilitasi teman-teman dalam mengembangkan softskill maupun hardskill agar siap bersaing di industri global."
-                </p>
-                <div class="border-l-4 border-blue-600 pl-4">
-                    <p class="font-bold text-slate-900 text-lg">Nama Ketua Himpunan</p>
-                    <p class="text-slate-500 text-sm">Periode 2025/2026</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-    <section id="struktur" class="py-24 relative overflow-hidden">
-        <div class="absolute inset-0 bg-primary skew-y-3 transform origin-bottom-left scale-110 z-0"></div>
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12" data-aos="fade-down">Kabinet Sinergi</h2>
-            
-            <div class="flex justify-center mb-12" data-aos="zoom-in">
-                <div class="bg-gradient-to-br from-blue-900/50 to-slate-900/50 backdrop-blur-md rounded-2xl p-6 text-center border border-blue-500/30 shadow-lg shadow-blue-500/20 max-w-sm w-full hover:scale-105 transition duration-300">
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=AhmadFaqih&backgroundColor=b6e3f4" class="w-28 h-28 mx-auto rounded-full mb-4 shadow-lg border-4 border-white/30">
-                    <h4 class="font-bold text-white text-xl">Ahmad Faqih</h4>
-                    <p class="text-blue-300 text-sm font-mono mb-1">24EP10001</p>
-                    <div class="inline-block px-4 py-1 rounded-full bg-blue-600 text-white text-xs font-bold mt-2">KETUA UMUM</div>
-                </div>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                <div class="bg-white/10 backdrop-blur-md rounded-xl p-5 text-center border border-white/10 hover:bg-white/20 transition group" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Alfina&backgroundColor=ffdfbf" class="w-20 h-20 mx-auto rounded-full mb-3 shadow-md border-2 border-white/20 group-hover:border-accent transition">
-                    <h5 class="font-bold text-white text-lg">Alfina Dinda M.</h5>
-                    <p class="text-gray-300 text-xs mb-1">24EP10010</p>
-                    <span class="text-accent text-xs font-semibold uppercase tracking-wider">Sekretaris 1</span>
-                </div>
-                <div class="bg-white/10 backdrop-blur-md rounded-xl p-5 text-center border border-white/10 hover:bg-white/20 transition group" data-aos="fade-up" data-aos-delay="150">
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Endhah&backgroundColor=ffdfbf" class="w-20 h-20 mx-auto rounded-full mb-3 shadow-md border-2 border-white/20 group-hover:border-accent transition">
-                    <h5 class="font-bold text-white text-lg">Endhah Raihanah</h5>
-                    <p class="text-gray-300 text-xs mb-1">255311005</p>
-                    <span class="text-accent text-xs font-semibold uppercase tracking-wider">Sekretaris 2</span>
-                </div>
-                <div class="bg-white/10 backdrop-blur-md rounded-xl p-5 text-center border border-white/10 hover:bg-white/20 transition group" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Andreanis&backgroundColor=c0aede" class="w-20 h-20 mx-auto rounded-full mb-3 shadow-md border-2 border-white/20 group-hover:border-accent transition">
-                    <h5 class="font-bold text-white text-lg">Andreanis S.D.P</h5>
-                    <p class="text-gray-300 text-xs mb-1">24EP10002</p>
-                    <span class="text-green-400 text-xs font-semibold uppercase tracking-wider">Bendahara 1</span>
-                </div>
-                <div class="bg-white/10 backdrop-blur-md rounded-xl p-5 text-center border border-white/10 hover:bg-white/20 transition group" data-aos="fade-up" data-aos-delay="250">
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Masyrifatul&backgroundColor=c0aede" class="w-20 h-20 mx-auto rounded-full mb-3 shadow-md border-2 border-white/20 group-hover:border-accent transition">
-                    <h5 class="font-bold text-white text-lg">Masyrifatul Husna</h5>
-                    <p class="text-gray-300 text-xs mb-1">255311001</p>
-                    <span class="text-green-400 text-xs font-semibold uppercase tracking-wider">Bendahara 2</span>
-                </div>
-            </div>
-
-            <h3 class="text-2xl font-bold text-white mb-8 pl-4 border-l-4 border-accent" data-aos="fade-right">Divisi Fungsional</h3>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-0 overflow-hidden border border-slate-700 hover:border-accent transition duration-300" data-aos="fade-up" data-aos-delay="300">
-                    <div class="bg-slate-800 p-4 border-b border-slate-700 flex items-center gap-3">
-                        <div class="w-8 h-8 rounded bg-blue-500/20 flex items-center justify-center text-blue-400"><i class="fa-solid fa-users"></i></div>
-                        <h4 class="font-bold text-white">Divisi Internal</h4>
-                    </div>
-                    <div class="p-4 space-y-4">
-                        <div class="flex items-center gap-3">
-                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Alia&backgroundColor=transparent" class="w-10 h-10 rounded-full bg-slate-700">
-                            <div>
-                                <p class="text-xs text-blue-400 font-bold uppercase">Ketua Divisi</p>
-                                <p class="text-white text-sm font-semibold">Alia Rizki P.</p>
-                                <p class="text-slate-400 text-[10px]">24EP10008</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-3 border-t border-slate-700/50 pt-3">
-                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Faiz&backgroundColor=transparent" class="w-10 h-10 rounded-full bg-slate-700">
-                            <div>
-                                <p class="text-xs text-slate-400 font-bold uppercase">Anggota</p>
-                                <p class="text-gray-200 text-sm">Faiz Syafiqul A.</p>
-                                <p class="text-slate-500 text-[10px]">255311004</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-0 overflow-hidden border border-slate-700 hover:border-accent transition duration-300" data-aos="fade-up" data-aos-delay="400">
-                    <div class="bg-slate-800 p-4 border-b border-slate-700 flex items-center gap-3">
-                        <div class="w-8 h-8 rounded bg-purple-500/20 flex items-center justify-center text-purple-400"><i class="fa-solid fa-handshake"></i></div>
-                        <h4 class="font-bold text-white">Divisi Eksternal</h4>
-                    </div>
-                    <div class="p-4 space-y-4">
-                        <div class="flex items-center gap-3">
-                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Nawalia&backgroundColor=transparent" class="w-10 h-10 rounded-full bg-slate-700">
-                            <div>
-                                <p class="text-xs text-purple-400 font-bold uppercase">Ketua Divisi</p>
-                                <p class="text-white text-sm font-semibold">Nawalia Nur F.</p>
-                                <p class="text-slate-400 text-[10px]">24EP10004</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-3 border-t border-slate-700/50 pt-3">
-                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Lutfi&backgroundColor=transparent" class="w-10 h-10 rounded-full bg-slate-700">
-                            <div>
-                                <p class="text-xs text-slate-400 font-bold uppercase">Anggota</p>
-                                <p class="text-gray-200 text-sm">Lutfi Altofian</p>
-                                <p class="text-slate-500 text-[10px]">255311003</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-0 overflow-hidden border border-slate-700 hover:border-accent transition duration-300" data-aos="fade-up" data-aos-delay="500">
-                    <div class="bg-slate-800 p-4 border-b border-slate-700 flex items-center gap-3">
-                        <div class="w-8 h-8 rounded bg-pink-500/20 flex items-center justify-center text-pink-400"><i class="fa-solid fa-camera"></i></div>
-                        <h4 class="font-bold text-white">Divisi MEDIFO</h4>
-                    </div>
-                    <div class="p-4 space-y-4">
-                        <div class="flex items-center gap-3">
-                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Widadurrohman&backgroundColor=transparent" class="w-10 h-10 rounded-full bg-slate-700">
-                            <div>
-                                <p class="text-xs text-pink-400 font-bold uppercase">Ketua Divisi</p>
-                                <p class="text-white text-sm font-semibold">Widadurrohman</p>
-                                <p class="text-slate-400 text-[10px]">24EP10009</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-3 border-t border-slate-700/50 pt-3">
-                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Umi&backgroundColor=transparent" class="w-10 h-10 rounded-full bg-slate-700">
-                            <div>
-                                <p class="text-xs text-slate-400 font-bold uppercase">Anggota</p>
-                                <p class="text-gray-200 text-sm">Umi Latifah</p>
-                                <p class="text-slate-500 text-[10px]">255311002</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-0 overflow-hidden border border-slate-700 hover:border-accent transition duration-300 transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="600">
-                    <div class="bg-slate-800 p-4 border-b border-slate-700 flex items-center gap-3">
-                        <div class="w-8 h-8 rounded bg-green-500/20 flex items-center justify-center text-green-400"><i class="fa-solid fa-microchip"></i></div>
-                        <h4 class="font-bold text-white">Divisi Science</h4>
-                    </div>
-                    <div class="p-4 space-y-4">
-                        <div class="flex items-center gap-3">
-                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Toik&backgroundColor=transparent" class="w-10 h-10 rounded-full bg-slate-700">
-                            <div>
-                                <p class="text-xs text-green-400 font-bold uppercase">Ketua Divisi</p>
-                                <p class="text-white text-sm font-semibold">Toik Zakiyudin</p>
-                                <p class="text-slate-400 text-[10px]">24EP10003</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-3 border-t border-slate-700/50 pt-3">
-                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Ghani&backgroundColor=transparent" class="w-10 h-10 rounded-full bg-slate-700">
-                            <div>
-                                <p class="text-xs text-slate-400 font-bold uppercase">Anggota</p>
-                                <p class="text-gray-200 text-sm">Rizqi Ghani A.</p>
-                                <p class="text-slate-500 text-[10px]">24EP10007</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
     </section>
 
-    <section id="download" class="py-24 bg-slate-50 relative border-t border-gray-200">
+    <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="text-accent font-bold tracking-wider uppercase text-sm">Knowledge Base</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-primary mt-2">Pusat Unduhan Materi</h2>
-                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Akses modul pembelajaran eksklusif HMPSSI untuk menunjang perkuliahan dan pengembangan skill teknis anggota.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
                 
-                <div class="group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition duration-300 relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
-                        <i class="fa-brands fa-python text-9xl text-yellow-500"></i>
-                    </div>
-                    <div class="w-14 h-14 bg-yellow-100 rounded-xl flex items-center justify-center text-yellow-600 mb-6 group-hover:scale-110 transition">
-                        <i class="fa-brands fa-python text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Basic Python Programming</h3>
-                    <p class="text-gray-500 text-sm mb-6 line-clamp-3">Modul lengkap pengenalan sintaks Python, Tipe Data, Looping, hingga pengenalan Object Oriented Programming (OOP) dasar.</p>
-                    <div class="flex items-center justify-between mt-auto">
-                        <span class="text-xs text-gray-400 font-mono">Ver 2.4 • PDF • 12 MB</span>
-                        <a href="#" class="px-4 py-2 bg-slate-800 text-white text-sm rounded-lg hover:bg-accent transition flex items-center gap-2">
-                            <i class="fa-solid fa-cloud-arrow-down"></i> Unduh
-                        </a>
+                <div class="relative">
+                    <div class="absolute inset-0 bg-blue-100 rounded-2xl transform translate-x-3 translate-y-3"></div>
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ketua HMPS" class="relative rounded-2xl shadow-xl w-full object-cover h-[400px]">
+                </div>
+
+                <div>
+                    <span class="text-blue-600 font-bold tracking-wider uppercase text-sm">Sambutan Ketua Himpunan</span>
+                    <h2 class="text-3xl font-bold text-slate-900 mt-2 mb-6">Satukan Langkah Menuju Progresivitas</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        "Assalamu'alaikum Wr. Wb. Selamat datang di website resmi HMPS SI. Di era disrupsi teknologi ini, mahasiswa Sistem Informasi memegang peran kunci. Kami hadir untuk memfasilitasi teman-teman dalam mengembangkan softskill maupun hardskill agar siap bersaing di industri global."
+                    </p>
+                    <div class="border-l-4 border-blue-600 pl-4">
+                        <p class="font-bold text-slate-900 text-lg">Nama Ketua Himpunan</p>
+                        <p class="text-slate-500 text-sm">Periode 2025/2026</p>
                     </div>
                 </div>
 
-                <div class="group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition duration-300 relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
-                        <i class="fa-brands fa-html5 text-9xl text-orange-500"></i>
-                    </div>
-                    <div class="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center text-orange-600 mb-6 group-hover:scale-110 transition">
-                        <i class="fa-solid fa-code text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Modern Web Development</h3>
-                    <p class="text-gray-500 text-sm mb-6 line-clamp-3">Panduan Frontend roadmap: HTML5 semantik, CSS3 layouting (Flexbox & Grid), serta pengenalan framework Tailwind CSS.</p>
-                    <div class="flex items-center justify-between mt-auto">
-                        <span class="text-xs text-gray-400 font-mono">Ver 1.1 • PDF • 8 MB</span>
-                        <a href="#" class="px-4 py-2 bg-slate-800 text-white text-sm rounded-lg hover:bg-accent transition flex items-center gap-2">
-                            <i class="fa-solid fa-cloud-arrow-down"></i> Unduh
-                        </a>
-                    </div>
-                </div>
-
-                <div class="group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition duration-300 relative overflow-hidden" data-aos="fade-up" data-aos-delay="300">
-                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
-                        <i class="fa-solid fa-network-wired text-9xl text-blue-500"></i>
-                    </div>
-                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 transition">
-                        <i class="fa-solid fa-server text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Jaringan Komputer Dasar</h3>
-                    <p class="text-gray-500 text-sm mb-6 line-clamp-3">Konsep OSI Layer, IP Addressing (Subnetting), Mikrotik Basic Config, dan manajemen bandwidth sederhana.</p>
-                    <div class="flex items-center justify-between mt-auto">
-                        <span class="text-xs text-gray-400 font-mono">Ver 3.0 • PDF • 15 MB</span>
-                        <a href="#" class="px-4 py-2 bg-slate-800 text-white text-sm rounded-lg hover:bg-accent transition flex items-center gap-2">
-                            <i class="fa-solid fa-cloud-arrow-down"></i> Unduh
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="mt-16 bg-gradient-to-r from-primary to-blue-900 rounded-2xl p-8 md:p-12 relative overflow-hidden" data-aos="zoom-in">
-                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-30"></div>
-                <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-                    <div>
-                        <h3 class="text-2xl font-bold text-white mb-2">Punya Materi Menarik untuk Dibagikan?</h3>
-                        <p class="text-blue-200">Berkontribusi untuk kemajuan bersama. Kirimkan modul buatanmu!</p>
-                    </div>
-                    <a href="#contact" class="px-6 py-3 bg-white text-primary font-bold rounded-lg hover:bg-blue-50 transition shadow-lg whitespace-nowrap">
-                        Upload Materi <i class="fa-solid fa-upload ml-2"></i>
-                    </a>
-                </div>
             </div>
         </div>
     </section>
+        <section id="struktur" class="py-24 relative overflow-hidden">
+            <div class="absolute inset-0 bg-primary skew-y-3 transform origin-bottom-left scale-110 z-0"></div>
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12" data-aos="fade-down">Kabinet Sinergi</h2>
+                
+                <div class="flex justify-center mb-12" data-aos="zoom-in">
+                    <div class="bg-gradient-to-br from-blue-900/50 to-slate-900/50 backdrop-blur-md rounded-2xl p-6 text-center border border-blue-500/30 shadow-lg shadow-blue-500/20 max-w-sm w-full hover:scale-105 transition duration-300">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=AhmadFaqih&backgroundColor=b6e3f4" class="w-28 h-28 mx-auto rounded-full mb-4 shadow-lg border-4 border-white/30">
+                        <h4 class="font-bold text-white text-xl">Ahmad Faqih</h4>
+                        <p class="text-blue-300 text-sm font-mono mb-1">24EP10001</p>
+                        <div class="inline-block px-4 py-1 rounded-full bg-blue-600 text-white text-xs font-bold mt-2">KETUA UMUM</div>
+                    </div>
+                </div>
 
-    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl p-5 text-center border border-white/10 hover:bg-white/20 transition group" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Alfina&backgroundColor=ffdfbf" class="w-20 h-20 mx-auto rounded-full mb-3 shadow-md border-2 border-white/20 group-hover:border-accent transition">
+                        <h5 class="font-bold text-white text-lg">Alfina Dinda M.</h5>
+                        <p class="text-gray-300 text-xs mb-1">24EP10010</p>
+                        <span class="text-accent text-xs font-semibold uppercase tracking-wider">Sekretaris 1</span>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl p-5 text-center border border-white/10 hover:bg-white/20 transition group" data-aos="fade-up" data-aos-delay="150">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Endhah&backgroundColor=ffdfbf" class="w-20 h-20 mx-auto rounded-full mb-3 shadow-md border-2 border-white/20 group-hover:border-accent transition">
+                        <h5 class="font-bold text-white text-lg">Endhah Raihanah</h5>
+                        <p class="text-gray-300 text-xs mb-1">255311005</p>
+                        <span class="text-accent text-xs font-semibold uppercase tracking-wider">Sekretaris 2</span>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl p-5 text-center border border-white/10 hover:bg-white/20 transition group" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Andreanis&backgroundColor=c0aede" class="w-20 h-20 mx-auto rounded-full mb-3 shadow-md border-2 border-white/20 group-hover:border-accent transition">
+                        <h5 class="font-bold text-white text-lg">Andreanis S.D.P</h5>
+                        <p class="text-gray-300 text-xs mb-1">24EP10002</p>
+                        <span class="text-green-400 text-xs font-semibold uppercase tracking-wider">Bendahara 1</span>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl p-5 text-center border border-white/10 hover:bg-white/20 transition group" data-aos="fade-up" data-aos-delay="250">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Masyrifatul&backgroundColor=c0aede" class="w-20 h-20 mx-auto rounded-full mb-3 shadow-md border-2 border-white/20 group-hover:border-accent transition">
+                        <h5 class="font-bold text-white text-lg">Masyrifatul Husna</h5>
+                        <p class="text-gray-300 text-xs mb-1">255311001</p>
+                        <span class="text-green-400 text-xs font-semibold uppercase tracking-wider">Bendahara 2</span>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold text-white mb-8 pl-4 border-l-4 border-accent" data-aos="fade-right">Divisi Fungsional</h3>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-0 overflow-hidden border border-slate-700 hover:border-accent transition duration-300" data-aos="fade-up" data-aos-delay="300">
+                        <div class="bg-slate-800 p-4 border-b border-slate-700 flex items-center gap-3">
+                            <div class="w-8 h-8 rounded bg-blue-500/20 flex items-center justify-center text-blue-400"><i class="fa-solid fa-users"></i></div>
+                            <h4 class="font-bold text-white">Divisi Internal</h4>
+                        </div>
+                        <div class="p-4 space-y-4">
+                            <div class="flex items-center gap-3">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Alia&backgroundColor=transparent" class="w-10 h-10 rounded-full bg-slate-700">
+                                <div>
+                                    <p class="text-xs text-blue-400 font-bold uppercase">Ketua Divisi</p>
+                                    <p class="text-white text-sm font-semibold">Alia Rizki P.</p>
+                                    <p class="text-slate-400 text-[10px]">24EP10008</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 border-t border-slate-700/50 pt-3">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Faiz&backgroundColor=transparent" class="w-10 h-10 rounded-full bg-slate-700">
+                                <div>
+                                    <p class="text-xs text-slate-400 font-bold uppercase">Anggota</p>
+                                    <p class="text-gray-200 text-sm">Faiz Syafiqul A.</p>
+                                    <p class="text-slate-500 text-[10px]">255311004</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-0 overflow-hidden border border-slate-700 hover:border-accent transition duration-300" data-aos="fade-up" data-aos-delay="400">
+                        <div class="bg-slate-800 p-4 border-b border-slate-700 flex items-center gap-3">
+                            <div class="w-8 h-8 rounded bg-purple-500/20 flex items-center justify-center text-purple-400"><i class="fa-solid fa-handshake"></i></div>
+                            <h4 class="font-bold text-white">Divisi Eksternal</h4>
+                        </div>
+                        <div class="p-4 space-y-4">
+                            <div class="flex items-center gap-3">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Nawalia&backgroundColor=transparent" class="w-10 h-10 rounded-full bg-slate-700">
+                                <div>
+                                    <p class="text-xs text-purple-400 font-bold uppercase">Ketua Divisi</p>
+                                    <p class="text-white text-sm font-semibold">Nawalia Nur F.</p>
+                                    <p class="text-slate-400 text-[10px]">24EP10004</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 border-t border-slate-700/50 pt-3">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Lutfi&backgroundColor=transparent" class="w-10 h-10 rounded-full bg-slate-700">
+                                <div>
+                                    <p class="text-xs text-slate-400 font-bold uppercase">Anggota</p>
+                                    <p class="text-gray-200 text-sm">Lutfi Altofian</p>
+                                    <p class="text-slate-500 text-[10px]">255311003</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-0 overflow-hidden border border-slate-700 hover:border-accent transition duration-300" data-aos="fade-up" data-aos-delay="500">
+                        <div class="bg-slate-800 p-4 border-b border-slate-700 flex items-center gap-3">
+                            <div class="w-8 h-8 rounded bg-pink-500/20 flex items-center justify-center text-pink-400"><i class="fa-solid fa-camera"></i></div>
+                            <h4 class="font-bold text-white">Divisi MEDIFO</h4>
+                        </div>
+                        <div class="p-4 space-y-4">
+                            <div class="flex items-center gap-3">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Widadurrohman&backgroundColor=transparent" class="w-10 h-10 rounded-full bg-slate-700">
+                                <div>
+                                    <p class="text-xs text-pink-400 font-bold uppercase">Ketua Divisi</p>
+                                    <p class="text-white text-sm font-semibold">Widadurrohman</p>
+                                    <p class="text-slate-400 text-[10px]">24EP10009</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 border-t border-slate-700/50 pt-3">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Umi&backgroundColor=transparent" class="w-10 h-10 rounded-full bg-slate-700">
+                                <div>
+                                    <p class="text-xs text-slate-400 font-bold uppercase">Anggota</p>
+                                    <p class="text-gray-200 text-sm">Umi Latifah</p>
+                                    <p class="text-slate-500 text-[10px]">255311002</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-0 overflow-hidden border border-slate-700 hover:border-accent transition duration-300 transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="600">
+                        <div class="bg-slate-800 p-4 border-b border-slate-700 flex items-center gap-3">
+                            <div class="w-8 h-8 rounded bg-green-500/20 flex items-center justify-center text-green-400"><i class="fa-solid fa-microchip"></i></div>
+                            <h4 class="font-bold text-white">Divisi Science</h4>
+                        </div>
+                        <div class="p-4 space-y-4">
+                            <div class="flex items-center gap-3">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Toik&backgroundColor=transparent" class="w-10 h-10 rounded-full bg-slate-700">
+                                <div>
+                                    <p class="text-xs text-green-400 font-bold uppercase">Ketua Divisi</p>
+                                    <p class="text-white text-sm font-semibold">Toik Zakiyudin</p>
+                                    <p class="text-slate-400 text-[10px]">24EP10003</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 border-t border-slate-700/50 pt-3">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Ghani&backgroundColor=transparent" class="w-10 h-10 rounded-full bg-slate-700">
+                                <div>
+                                    <p class="text-xs text-slate-400 font-bold uppercase">Anggota</p>
+                                    <p class="text-gray-200 text-sm">Rizqi Ghani A.</p>
+                                    <p class="text-slate-500 text-[10px]">24EP10007</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="download" class="py-24 bg-slate-50 relative border-t border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <span class="text-accent font-bold tracking-wider uppercase text-sm">Knowledge Base</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary mt-2">Pusat Unduhan Materi</h2>
+                    <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Akses modul pembelajaran eksklusif HMPSSI untuk menunjang perkuliahan dan pengembangan skill teknis anggota.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    
+                    <div class="group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition duration-300 relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                        <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                            <i class="fa-brands fa-python text-9xl text-yellow-500"></i>
+                        </div>
+                        <div class="w-14 h-14 bg-yellow-100 rounded-xl flex items-center justify-center text-yellow-600 mb-6 group-hover:scale-110 transition">
+                            <i class="fa-brands fa-python text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Basic Python Programming</h3>
+                        <p class="text-gray-500 text-sm mb-6 line-clamp-3">Modul lengkap pengenalan sintaks Python, Tipe Data, Looping, hingga pengenalan Object Oriented Programming (OOP) dasar.</p>
+                        <div class="flex items-center justify-between mt-auto">
+                            <span class="text-xs text-gray-400 font-mono">Ver 2.4 • PDF • 12 MB</span>
+                            <a href="#" class="px-4 py-2 bg-slate-800 text-white text-sm rounded-lg hover:bg-accent transition flex items-center gap-2">
+                                <i class="fa-solid fa-cloud-arrow-down"></i> Unduh
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition duration-300 relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                        <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                            <i class="fa-brands fa-html5 text-9xl text-orange-500"></i>
+                        </div>
+                        <div class="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center text-orange-600 mb-6 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-code text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Modern Web Development</h3>
+                        <p class="text-gray-500 text-sm mb-6 line-clamp-3">Panduan Frontend roadmap: HTML5 semantik, CSS3 layouting (Flexbox & Grid), serta pengenalan framework Tailwind CSS.</p>
+                        <div class="flex items-center justify-between mt-auto">
+                            <span class="text-xs text-gray-400 font-mono">Ver 1.1 • PDF • 8 MB</span>
+                            <a href="#" class="px-4 py-2 bg-slate-800 text-white text-sm rounded-lg hover:bg-accent transition flex items-center gap-2">
+                                <i class="fa-solid fa-cloud-arrow-down"></i> Unduh
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition duration-300 relative overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                        <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                            <i class="fa-solid fa-network-wired text-9xl text-blue-500"></i>
+                        </div>
+                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-server text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Jaringan Komputer Dasar</h3>
+                        <p class="text-gray-500 text-sm mb-6 line-clamp-3">Konsep OSI Layer, IP Addressing (Subnetting), Mikrotik Basic Config, dan manajemen bandwidth sederhana.</p>
+                        <div class="flex items-center justify-between mt-auto">
+                            <span class="text-xs text-gray-400 font-mono">Ver 3.0 • PDF • 15 MB</span>
+                            <a href="#" class="px-4 py-2 bg-slate-800 text-white text-sm rounded-lg hover:bg-accent transition flex items-center gap-2">
+                                <i class="fa-solid fa-cloud-arrow-down"></i> Unduh
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mt-16 bg-gradient-to-r from-primary to-blue-900 rounded-2xl p-8 md:p-12 relative overflow-hidden" data-aos="zoom-in">
+                    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-30"></div>
+                    <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Punya Materi Menarik untuk Dibagikan?</h3>
+                            <p class="text-blue-200">Berkontribusi untuk kemajuan bersama. Kirimkan modul buatanmu!</p>
+                        </div>
+                        <a href="#contact" class="px-6 py-3 bg-white text-primary font-bold rounded-lg hover:bg-blue-50 transition shadow-lg whitespace-nowrap">
+                            Upload Materi <i class="fa-solid fa-upload ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <div class="mb-6 flex justify-center items-center gap-2">
+                    <i class="fa-solid fa-code text-accent text-2xl"></i>
+                    <span class="font-bold text-2xl text-white">HMPSSI</span>
+                </div>
+                <p class="mb-8 max-w-lg mx-auto">Terima kasih telah berkunjung. Mari berkolaborasi menciptakan inovasi teknologi yang bermanfaat bagi umat.</p>
+                
+                <div class="flex justify-center gap-6 mb-8">
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-accent hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-accent hover:text-white transition"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-accent hover:text-white transition"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+                
+                <div class="text-sm border-t border-slate-800 pt-8">
+                    <p>&copy; 2026 HMPSSI UNUGHA. Crafted with <i class="fa-solid fa-heart text-red-500 animate-pulse"></i> by <span class="text-white font-semibold">Rizqi Ghani Adinata</span>.</p>
+                </div>
+            </div>
+        </footer>
+
+        <button id="backToTop" class="fixed bottom-8 right-8 bg-accent text-white w-12 h-12 rounded-full shadow-lg hover:bg-blue-600 transition opacity-0 invisible translate-y-10 z-50 flex items-center justify-center">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+            <footer class="bg-slate-900 border-t border-slate-800 text-slate-400 py-12">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <div class="mb-6 flex justify-center items-center gap-2">
-                <i class="fa-solid fa-code text-accent text-2xl"></i>
-                <span class="font-bold text-2xl text-white">HMPSSI</span>
+            <div class="flex justify-center items-center gap-2 mb-4">
+                <i class="fa-solid fa-code-branch text-2xl text-blue-500"></i>
+                <span class="text-2xl font-bold text-white">HMPS SI</span>
             </div>
-            <p class="mb-8 max-w-lg mx-auto">Terima kasih telah berkunjung. Mari berkolaborasi menciptakan inovasi teknologi yang bermanfaat bagi umat.</p>
-            
+            <p class="mb-6">Membangun Generasi Emas Teknologi Informasi</p>
             <div class="flex justify-center gap-6 mb-8">
-                <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-accent hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-accent hover:text-white transition"><i class="fa-brands fa-github"></i></a>
-                <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-accent hover:text-white transition"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fa-brands fa-instagram text-xl"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fa-brands fa-linkedin text-xl"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fa-brands fa-github text-xl"></i></a>
             </div>
-            
-            <div class="text-sm border-t border-slate-800 pt-8">
-                <p>&copy; 2026 HMPSSI UNUGHA. Crafted with <i class="fa-solid fa-heart text-red-500 animate-pulse"></i> by <span class="text-white font-semibold">Ghani Adinata</span>.</p>
-            </div>
+            <p class="text-sm text-slate-600">
+                &copy; 2026 HMPS Sistem Informasi UNUGHA. All rights reserved.
+            </p>
         </div>
     </footer>
 
-    <button id="backToTop" class="fixed bottom-8 right-8 bg-accent text-white w-12 h-12 rounded-full shadow-lg hover:bg-blue-600 transition opacity-0 invisible translate-y-10 z-50 flex items-center justify-center">
-        <i class="fa-solid fa-arrow-up"></i>
-    </button>
-
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-        <footer class="bg-slate-900 border-t border-slate-800 text-slate-400 py-12">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-        <div class="flex justify-center items-center gap-2 mb-4">
-            <i class="fa-solid fa-code-branch text-2xl text-blue-500"></i>
-            <span class="text-2xl font-bold text-white">HMPS SI</span>
-        </div>
-        <p class="mb-6">Membangun Generasi Emas Teknologi Informasi</p>
-        <div class="flex justify-center gap-6 mb-8">
-            <a href="#" class="hover:text-white transition"><i class="fa-brands fa-instagram text-xl"></i></a>
-            <a href="#" class="hover:text-white transition"><i class="fa-brands fa-linkedin text-xl"></i></a>
-            <a href="#" class="hover:text-white transition"><i class="fa-brands fa-github text-xl"></i></a>
-        </div>
-        <p class="text-sm text-slate-600">
-            &copy; 2026 HMPS Sistem Informasi UNUGHA. All rights reserved.
-        </p>
-    </div>
-</footer>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  // Menyalakan Animasi
-  AOS.init({
-    duration: 800, // Kecepatan animasi
-    once: true,    // Animasi cuma sekali saat scroll ke bawah
-  });
-
-  // 2. Script untuk Tombol Menu di HP (Agar bisa diklik)
-  const menuBtn = document.querySelector('[data-collapse-toggle="navbar-sticky"]');
-  const menuList = document.getElementById('navbar-sticky');
-
-  if(menuBtn && menuList) {
-      menuBtn.addEventListener('click', () => {
-          menuList.classList.toggle('hidden');
-      });
-  }
-</script>
-
-</body>
-</html>
     <script>
-        // 1. Initialize AOS (Animate On Scroll)
-        AOS.init({
-            once: true, // animasi hanya sekali saat scroll ke bawah
-            offset: 100, // jarak trigger
+    // Menyalakan Animasi
+    AOS.init({
+        duration: 800, // Kecepatan animasi
+        once: true,    // Animasi cuma sekali saat scroll ke bawah
+    });
+
+    // 2. Script untuk Tombol Menu di HP (Agar bisa diklik)
+    const menuBtn = document.querySelector('[data-collapse-toggle="navbar-sticky"]');
+    const menuList = document.getElementById('navbar-sticky');
+
+    if(menuBtn && menuList) {
+        menuBtn.addEventListener('click', () => {
+            menuList.classList.toggle('hidden');
         });
-
-        // 2. Mobile Menu Logic
-        const btn = document.getElementById('mobile-btn');
-        const menu = document.getElementById('mobile-menu');
-        
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-
-        // 3. Typing Effect (Simple JS)
-        const textElement = document.getElementById('typewriter');
-        const phrases = ['Wadah Aspirasi.', 'Pusat Teknologi.', 'Keluarga Kita.'];
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        function type() {
-            const currentPhrase = phrases[phraseIndex];
-            
-            if (isDeleting) {
-                textElement.textContent = currentPhrase.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                textElement.textContent = currentPhrase.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            if (!isDeleting && charIndex === currentPhrase.length) {
-                isDeleting = true;
-                setTimeout(type, 2000); // Tunggu sebelum menghapus
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                setTimeout(type, 500);
-            } else {
-                setTimeout(type, isDeleting ? 100 : 200);
-            }
-        }
-        
-        // Mulai typing effect setelah halaman load
-        document.addEventListener('DOMContentLoaded', type);
-
-        // 4. Navbar & Back to Top Logic
-        const navbar = document.getElementById('navbar');
-        const backToTop = document.getElementById('backToTop');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('shadow-md');
-                backToTop.classList.remove('opacity-0', 'invisible', 'translate-y-10');
-            } else {
-                navbar.classList.remove('shadow-md');
-                backToTop.classList.add('opacity-0', 'invisible', 'translate-y-10');
-            }
-        });
-
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+    }
     </script>
-</body>
-</html>
+
+    </body>
+    </html>
+        <script>
+            // 1. Initialize AOS (Animate On Scroll)
+            AOS.init({
+                once: true, // animasi hanya sekali saat scroll ke bawah
+                offset: 100, // jarak trigger
+            });
+
+            // 2. Mobile Menu Logic
+            const btn = document.getElementById('mobile-btn');
+            const menu = document.getElementById('mobile-menu');
+            
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+
+            // 3. Typing Effect (Simple JS)
+            const textElement = document.getElementById('typewriter');
+            const phrases = ['Wadah Aspirasi.', 'Pusat Teknologi.', 'Keluarga Kita.'];
+            let phraseIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+
+            function type() {
+                const currentPhrase = phrases[phraseIndex];
+                
+                if (isDeleting) {
+                    textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+
+                if (!isDeleting && charIndex === currentPhrase.length) {
+                    isDeleting = true;
+                    setTimeout(type, 2000); // Tunggu sebelum menghapus
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    setTimeout(type, 500);
+                } else {
+                    setTimeout(type, isDeleting ? 100 : 200);
+                }
+            }
+            
+            // Mulai typing effect setelah halaman load
+            document.addEventListener('DOMContentLoaded', type);
+
+            // 4. Navbar & Back to Top Logic
+            const navbar = document.getElementById('navbar');
+            const backToTop = document.getElementById('backToTop');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('shadow-md');
+                    backToTop.classList.remove('opacity-0', 'invisible', 'translate-y-10');
+                } else {
+                    navbar.classList.remove('shadow-md');
+                    backToTop.classList.add('opacity-0', 'invisible', 'translate-y-10');
+                }
+            });
+
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        </script>
+    </body>
+    </html>
