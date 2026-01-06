@@ -1,5 +1,4 @@
     <!DOCTYPE html>
-    <html lang="id" class="scroll-smooth"></html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -66,80 +65,24 @@
         </style>
     </head>
     <body class="bg-gray-50 text-gray-800 font-sans overflow-x-hidden">
-        <nav class="fixed w-full z-50 top-0 start-0 border-b border-gray-200 bg-white/90 backdrop-blur-md">
-    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between p-4">
-        
-        <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <div class="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center text-white">
-                <i class="fa-solid fa-code-branch text-xl"></i>
-            </div>
-            <span class="self-center text-2xl font-bold whitespace-nowrap text-slate-900">HMPS SI</span>
-        </a>
-
-        <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-sticky" aria-expanded="false">
-            <span class="sr-only">Buka menu utama</span>
-            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-            </svg>
-        </button>
-
-        <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-        <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent">
-            
-            <li>
-            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 transition-colors">Beranda</a>
-            </li>
-            
-            <li>
-            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 transition-colors">Profil</a>
-            </li>
-
-            <li>
-            <a href="#download" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0" aria-current="page">Bank Materi</a>
-            </li>
-
-            <li>
-            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 transition-colors">Kegiatan</a>
-            </li>
-
-            <li>
-            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 transition-colors">Kontak</a>
-            </li>
-        </ul>
+        <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-sm shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      
+      <div class="flex-shrink-0 font-bold text-2xl text-blue-600">
+        HMPSSI
+      </div>
+      <div class="hidden md:block">
+        <div class="ml-10 flex items-baseline space-x-4">
+          <a href="#home" class="hover:text-blue-600 px-3 py-2 rounded-md font-medium">Beranda</a>
+          <a href="#about" class="hover:text-blue-600 px-3 py-2 rounded-md font-medium">Tentang</a>
+          <a href="#proker" class="hover:text-blue-600 px-3 py-2 rounded-md font-medium">Proker</a>
+          <a href="https://wa.me/62895337134121" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700">Hubungi Kami</a>
         </div>
-    </div>
-    </nav>
+      </div>
 
-        <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md border-b border-gray-200">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center h-20">
-                    <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
-                        <div class="w-10 h-10 bg-accent rounded-lg flex items-center justify-center text-white shadow-lg shadow-blue-500/30">
-                            <i class="fa-solid fa-code text-xl"></i>
-                        </div>
-                        <div>
-                            <span class="block font-bold text-xl tracking-tight text-primary leading-none">HMPSSI</span>
-                            <span class="text-xs text-gray-500 font-medium">UNUGHA CILACAP</span>
-                        </div>
-                    </div>
-                    
-                    <div class="hidden md:flex space-x-8 items-center">
-                        <a href="#home" class="text-sm font-medium text-gray-600 hover:text-accent transition relative group">
-                            Beranda <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
-                        </a>
-                        <a href="#about" class="text-sm font-medium text-gray-600 hover:text-accent transition relative group">
-                            Tentang <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
-                        </a>
-                        <a href="#proker" class="text-sm font-medium text-gray-600 hover:text-accent transition relative group">
-                            Proker <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
-                        </a>
-                        <a href="#struktur" class="text-sm font-medium text-gray-600 hover:text-accent transition relative group">
-                            Struktur <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
-                        </a>
-                        <a href="https://wa.me/62895337134121?text=Halo%20Admin%2C%20saya%20ingin%20bertanya%20tentang%20HMPSSI" 
-   target="_blank"
-   class="hidden md:inline-block px-6 py-2 bg-gray-900 text-white font-semibold rounded-full hover:bg-gray-700 transition duration-300">
-   Hubungi Kami
+      <div class="-mr-2 flex md:hidden">
+        <button type="button" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="inline-flex items-center justify-center p-2 rounded-md text-gray-800 hover:text-blue-600 focus:outline-none">
 </a>
                         </a>
                     </div>
@@ -174,7 +117,10 @@
                         <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
                         Open Recruitment 2026
                     </div>
-                    <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                    <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+   Inovasi Tanpa <br>
+   <span class="...">Batas.</span>
+</h1>
                         Inovasi Tanpa <br>
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Batas.</span>
                     </h1>
