@@ -57,42 +57,43 @@
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans overflow-x-hidden">
 
-    <nav id="navbar" class="fixed w-full z-50 bg-white/90 backdrop-blur-sm transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
+    <nav id="navbar" class="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-center justify-between py-3 md:h-16">
+            
+            <div class="flex items-center justify-center md:justify-start mb-2 md:mb-0">
                 <div class="flex-shrink-0 font-bold text-2xl text-blue-600 flex items-center gap-2">
                     <i class="fa-solid fa-code-branch"></i> HMPSSI
                 </div>
-                
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#home" class="hover:text-blue-600 px-3 py-2 rounded-md font-medium transition">Beranda</a>
-                        <a href="#about" class="hover:text-blue-600 px-3 py-2 rounded-md font-medium transition">Tentang</a>
-                        <a href="#proker" class="hover:text-blue-600 px-3 py-2 rounded-md font-medium transition">Proker</a>
-                        <a href="#struktur" class="hover:text-blue-600 px-3 py-2 rounded-md font-medium transition">Struktur</a>
-                        <a href="#download" class="hover:text-blue-600 px-3 py-2 rounded-md font-medium transition">Materi</a>
-                        <a href="https://wa.me/62895337134121" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition shadow-lg shadow-blue-500/30">Hubungi Kami</a>
-                    </div>
+            </div>
+            
+            <div class="w-full md:w-auto overflow-x-auto pb-2 md:pb-0 no-scrollbar">
+                <div class="flex items-center space-x-2 md:space-x-4 px-1 min-w-max mx-auto md:mx-0">
+                    <a href="#home" class="text-sm md:text-base hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-full font-medium transition whitespace-nowrap">Beranda</a>
+                    <a href="#about" class="text-sm md:text-base hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-full font-medium transition whitespace-nowrap">Tentang</a>
+                    <a href="#proker" class="text-sm md:text-base hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-full font-medium transition whitespace-nowrap">Proker</a>
+                    <a href="#struktur" class="text-sm md:text-base hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-full font-medium transition whitespace-nowrap">Struktur</a>
+                    <a href="#download" class="text-sm md:text-base hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-full font-medium transition whitespace-nowrap">Materi</a>
+                    <a href="https://wa.me/62895337134121" class="text-sm md:text-base bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition shadow-md shadow-blue-500/30 whitespace-nowrap flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp"></i> Hubungi
+                    </a>
                 </div>
+            </div>
 
-                <div class="-mr-2 flex md:hidden">
-                    <button type="button" id="mobile-btn" class="inline-flex items-center justify-center p-2 rounded-md text-gray-800 hover:text-blue-600 focus:outline-none">
-                        <i class="fa-solid fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
         </div>
-        
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t absolute w-full shadow-xl">
-            <div class="px-4 pt-2 pb-6 space-y-1">
-                <a href="#home" class="block py-3 px-4 text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-accent rounded-md">Beranda</a>
-                <a href="#about" class="block py-3 px-4 text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-accent rounded-md">Tentang</a>
-                <a href="#proker" class="block py-3 px-4 text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-accent rounded-md">Proker</a>
-                <a href="#struktur" class="block py-3 px-4 text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-accent rounded-md">Struktur</a>
-                <a href="#download" class="block py-3 px-4 text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-accent rounded-md">Materi</a>
-            </div>
-        </div>
-    </nav>
+    </div>
+</nav>
+
+<style>
+    /* Menyembunyikan scrollbar tapi tetap bisa discroll */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .no-scrollbar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+</style>
 
     <section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-primary">
         <div class="absolute inset-0 z-0">
